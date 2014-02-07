@@ -9,14 +9,80 @@ Additional Tools
 Additional Tools Overview
 *************************
 
-Individual course teams frequently create tools and problem types that don't have templates in Studio. We want to make these tools available to all our course teams. We provide you with all the files and code that you need to create these problems in Studio.
+Individual course teams frequently create tools and problem types that don't have templates in Studio. We want to make these tools available to all our course teams. 
 
-Below, you'll find the information you need to create the following tools.
+Below, we provide you with all the files and code that you need to create the following tools and problem types.
 
+* :ref:`Chemical Equation`
 * :ref:`Interactive Periodic Table`
 * :ref:`Molecule Editor`
 * :ref:`Multiple Choice and Numerical Input`
 * :ref:`Protein Builder`
+
+.. _Chemical Equation:
+
+**************************
+Chemical Equation Problem
+**************************
+
+The chemical equation problem type allows the student to enter chemical equations. The grader evaluates student responses by using a Python script that you create and embed in the problem.
+
+.. image:: /Images/ChemicalEquationExample.png
+ :alt: Image of a chemical equation response problem
+
+====================================
+Create the Chemical Equation Problem
+====================================
+
+To create the above chemical equation problem:
+
+#. In the unit where you want to create the problem, click **Problem** under **Add New Component**, and then click the **Advanced** tab.
+#. Click **Blank Advanced Problem**.
+#. In the component that appears, click **Edit**.
+#. In the component editor, paste the code from below.
+#. Click **Save**.
+
+====================================
+Chemical Equation Problem Code
+====================================
+
+.. code-block:: xml
+
+  <problem>
+    <startouttext/>
+    <p>Some problems may ask for a particular chemical equation. Practice by writing out the following reaction in the box below.</p>
+    
+  \( \text{H}_2\text{SO}_4 \longrightarrow \text { H}^+ + \text{ HSO}_4^-\)
+
+    <customresponse>
+      <chemicalequationinput size="50"/>
+      <answer type="loncapa/python">
+
+  if chemcalc.chemical_equations_equal(submission[0], 'H2SO4 -> H^+ + HSO4^-'):
+      correct = ['correct']
+  else:
+      correct = ['incorrect']
+
+      </answer>
+    </customresponse>
+    <p>Some tips:</p>
+    <ul>
+    <li>Use real element symbols.</li>
+    <li>Create subscripts by using plain text.</li>
+    <li>Create superscripts by using a caret (^).</li>
+    <li>Create the reaction arrow (\(\longrightarrow\)) by using "->".</li>
+    </ul>
+
+    <endouttext/>
+  
+   <solution>
+   <div class="detailed-solution">
+   <p>Solution</p>
+   <p>To create this equation, enter the following:</p>
+     <p>H2SO4 -> H^+ + HSO4^-</p>
+   </div>
+   </solution>
+  </problem>
 
 .. _Interactive Periodic Table:
 
@@ -52,7 +118,7 @@ To create the periodic table, you need an HTML component.
 #. In the component editor, switch to the **HTML** tab.
 #. Open the PeriodicTable.txt file in any text editor.
 #. Copy all of the text in the PeriodicTable.txt file, and paste it into the HTML component editor. (Note that the PeriodicTableHTML.txt file contains over 6000 lines of code. Paste all of this code into the component editor.)
-#. Make any changes that you want, and then click **Save**.
+#. Click **Save**.
 
 .. _Molecule Editor:
 
@@ -91,7 +157,7 @@ To create the molecule editor, you need an HTML component followed by a Problem 
   #. Under the HTML component, click **Problem** under **Add New Component**, and then click **Blank Advanced Problem**.
   #. In the component that appears, click **Edit**.
   #. In the component editor, paste the Problem component code from below.
-  #. Make any changes that you want, and then click **Save**.
+  #. Click **Save**.
 
 .. _EMC Problem Code:
 
@@ -104,7 +170,7 @@ To create the molecule editor, you'll need an HTML component followed by a Probl
 HTML Component Code
 -------------------
 
-::
+.. code-block:: xml
 
   <h2>Molecule Editor</h2>
   <p>The molecule editor makes creating and visualizing molecules easy. A chemistry professor may have you build and submit a molecule as part of an exercise.</p>
@@ -150,9 +216,9 @@ HTML Component Code
 
 
 
-Problem Component
------------------
-::
+Problem Component Code
+----------------------
+.. code-block:: xml
 
   <problem>
   <p>The dopamine molecule, as shown, cannot make ionic bonds. Edit the dopamine molecule so it can make ionic bonds.</p>
@@ -206,7 +272,7 @@ To create a multiple choice and numerical input problem:
 Multiple Choice and Numerical Input Problem Code
 ===================================================
 
-::
+.. code-block:: xml
 
   <problem>
   The numerical value of pi, rounded to two decimal points, is 3.24.
@@ -249,7 +315,7 @@ To create the protein builder:
 Protein Builder Code
 =====================
 
-::
+.. code-block:: xml
 
   <problem>
       <p>The protein builder allows you string together the building blocks of proteins, amino acids, and see how that string will form into a structure. You are presented with a goal protein shape, and your task is to try to re-create it. In the example below, the shape that you are asked to form is a simple line.</p> 

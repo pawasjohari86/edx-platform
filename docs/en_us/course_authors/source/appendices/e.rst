@@ -8,8 +8,9 @@ APPENDIX E: Problem and Tool XML
 
 This appendix provides information about the XML for most problem and tool types in Studio:
 
+* :ref:`General`
 * :ref:`Checkbox`
-* :ref:`Chemical Equation Response`
+* :ref:`Chemical Equation Input`
 * :ref:`Custom Response`
 * :ref:`Formula Response`
 * :ref:`Image Response`
@@ -19,16 +20,55 @@ This appendix provides information about the XML for most problem and tool types
 * :ref:`Schematic Response`
 * :ref:`String Response`
 
+.. _General:
+
+General
+---------------------------
+ 
+Some tags are common to most problems.
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - Tag
+     - Description
+   * - ``<problem> </problem>``
+     - These must be the first and last tags for any content created in the Advanced Editor in a Problem component.
+   * - ``<startouttext/>``
+     - 
+   * - ``<endouttext/>``
+     - 
+   * - ``<solution> <div class="detailed-solution"> </div> </solution>`` (optional)
+     - If you want to include more information in the problem, such as a detailed explanation of the problem's answer, you'll enter the text between the two ``<div>`` tags, which are inside the ``<solution>`` tags. (These tags do not have to be on the same line.)
+
+
 .. _Checkbox:
 
 Choice Response (Checkbox)
 ---------------------------
 
-Sample Problem:
+Although you can create checkbox problems by using the Simple Editor in Studio, you may want to see or change the problem's underlying XML.
+
+**Sample Problem**
 
 .. image:: ../Images/CheckboxExample.gif
  :alt: Image of a checkbox problem
 
+**Tags**
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - ``<choiceresponse>``
+     - Specifies that the problem lists answer options for students to choose from.
+   * - ``<checkboxgroup>``
+     - A child of ``<choiceresponse>``. Specifies that the problem is a checkbox problem.
+   * - ``<choice>``
+     - A child of ``<checkboxgroup>``. Designates an answer option. Each choice must include the ``correct`` attribute, set to true (for a correct answer) or false (for an incorrect answer). For checkbox problems, more than one option can be a correct answer.
+       * correct="true"
+       * correct="false"
 
 **Sample Problem XML**
 
@@ -39,12 +79,12 @@ Sample Problem:
     <p>Learning about the benefits of preventative healthcare can be particularly difficult. Check all of the reasons below why this may be the case.</p>
 
   <choiceresponse>
-  <checkboxgroup>
-  <choice correct="true"><text>A large amount of time passes between undertaking a preventative measure and seeing the result.</text></choice>
-  <choice correct="false"><text>Non-immunized people will always fall sick.</text></choice>
-  <choice correct="true"><text>If others are immunized, fewer people will fall sick regardless of a particular individual's choice to get immunized or not.</text></choice>
-  <choice correct="true"><text>Trust in healthcare professionals and government officials is fragile.</text></choice>
-  </checkboxgroup>
+    <checkboxgroup>
+      <choice correct="true"><text>A large amount of time passes between undertaking a preventative measure and seeing the result.</text></choice>
+      <choice correct="false"><text>Non-immunized people will always fall sick.</text></choice>
+      <choice correct="true"><text>If others are immunized, fewer people will fall sick regardless of a particular individual's choice to get immunized or not.</text></choice>
+      <choice correct="true"><text>Trust in healthcare professionals and government officials is fragile.</text></choice>
+    </checkboxgroup>
 
    <solution>
    <div class="detailed-solution">
@@ -73,27 +113,38 @@ Sample Problem:
 
    <solution>
    <div class="detailed-solution">
-   <p>Explanation</p>
-   <p>Explanation text</p>
+   <p>Solution or Explanation Heading</p>
+   <p>Solution or explanation text</p>
    </div>
    </solution>
 
   </choiceresponse>
   </problem>
 
+.. _Chemical Equation:
 
-
-.. _Chemical Equation Response:
-
-Chemical Equation Response
---------------------------
-
-The chemical equation problem type allows the student to enter chemical equations. The grader evaluates student responses by using a Python script that you create and embed in the problem.
+Chemical Equation 
+-----------------
 
 **Sample Problem**
 
 .. image:: ../Images/ChemicalEquationExample.png
  :alt: Image of a chemical equation response problem
+
+**Required Tags**
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - ``<customresponse>``
+     - Indicates that this problem has a custom response. The ``<customresponse>`` tags must surround the ``<chemicalequation>`` tags.
+   * - ``<chemicalequationinput>``
+     - A child of ``<customresponse>``. Indicates that the answer to this problem is a chemical equation.
+   * - ``<answer type=loncapa/python>``
+     - A child of ``<chemicalequationinput>``. Contains the Python script that grades the problem.
+
+Chemical equation problems use MathJax to create formulas. For more information about using MathJax in Studio, see :ref:`MathJax in Studio`.
 
 **Sample Problem XML**:
 
@@ -135,19 +186,63 @@ The chemical equation problem type allows the student to enter chemical equation
    </solution>
   </problem>
 
+**Problem Template**:
+
+.. code-block:: xml
+
+  <problem>
+    <startouttext/>
+    <p>Problem text</p>
+
+    <customresponse>
+      <chemicalequationinput size="50"/>
+      <answer type="loncapa/python">
+
+  if chemcalc.chemical_equations_equal(submission[0], 'TEXT REPRESENTING CHEMICAL EQUATION'):
+      correct = ['correct']
+  else:
+      correct = ['incorrect']
+
+      </answer>
+    </customresponse>
+
+    <endouttext/>
+  
+   <solution>
+   <div class="detailed-solution">
+   <p>Solution</p>
+   <p>To create this equation, enter the following:</p>
+   </div>
+   </solution>
+  </problem>
+
 
 .. _Custom Response:
 
 Custom Response ("Write-Your-Own-Grader")
 ------------------------------------------
 
-In write-your-own-grader problems (also called “custom Python-evaluated input” problems), the grader evaluates a student’s response using a Python script that you create and embed in the problem. Students can enter more than one line of text.
+In write-your-own-grader problems (also called “custom Python-evaluated input” problems), the grader evaluates a student’s response using a Python script that you create and embed in the problem. 
 
 **Sample Problem**
 
 .. image:: ../Images/CustomPythonExample.png
  :alt: Image of a custom response problem
 
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - ``<script type="loncapa/python">``
+     - 
+   * - ``<customresponse cfn="test_add_to_ten">``
+     - 
+   * - ``<customresponse cfn="test_add" expect="20">``
+     - 
+   * - <textline size="10" correct_answer="3"/>
+     - This tag includes the following attributes:
+       * size (required)
+       * correct_answer (optional)
 
 **Sample Problem XML**:
 
@@ -183,18 +278,18 @@ In write-your-own-grader problems (also called “custom Python-evaluated input�
           <textline size="10"/>
   </customresponse>
 
-      <solution>
-          <div class="detailed-solution">
-              <p>Explanation</p>
-                 <p>For part 1, any two numbers of the form <i>n</i> and <i>10-n</i>, where <i>n</i> is any integer, will work. One possible answer would be the pair 0 and 10.</p>
-                <p>For part 2, any pair <i>x</i> and <i>20-x</i> will work, where <i>x</i> is any real number with a finite decimal representation. Both inputs have to be entered either in standard decimal notation or in scientific exponential notation. One possible answer would be the pair 0.5 and 19.5. Another way to write this would be 5e-1 and 1.95e1.</p>
-          </div>
-      </solution>
+  <solution>
+      <div class="detailed-solution">
+          <p>Explanation</p>
+          <p>For part 1, any two numbers of the form <i>n</i> and <i>10-n</i>, where <i>n</i> is any integer, will work. One possible answer would be the pair 0 and 10.</p>
+          <p>For part 2, any pair <i>x</i> and <i>20-x</i> will work, where <i>x</i> is any real number with a finite decimal representation. Both inputs have to be entered either in standard decimal notation or in scientific exponential notation. One possible answer would be the pair 0.5 and 19.5. Another way to write this would be 5e-1 and 1.95e1.</p>
+      </div>
+  </solution>
   </problem>
 
 **Templates**
 
-The following template includes suggested correct answers (to include these, add a ``correct_answer`` attribute to the ``<textline>`` tag).
+The following template includes answers that appear when the student clicks **Show Answer**. 
 
 .. code-block:: xml
 
@@ -208,7 +303,7 @@ The following template includes suggested correct answers (to include these, add
   </script>
 
 
-  <p>Enter two real numbers that sum to 20: </p>
+  <p>Problem text</p>
   <customresponse cfn="test_add" expect="20">
           <textline size="10" correct_answer="11"/><br/>
           <textline size="10" correct_answer="9"/>
@@ -216,11 +311,13 @@ The following template includes suggested correct answers (to include these, add
 
       <solution>
           <div class="detailed-solution">
+            <p>Solution or Explanation Heading</p>
+            <p>Solution or explanation text</p>
           </div>
       </solution>
   </problem>
 
-The following template does not include suggested correct answers.
+The following template does not return answers when the student clicks **Show Answer**. If your problem doesn't include answers for the student to see, make sure to set **Show Answer** to **Never** in the problem component.
 
 .. code-block:: xml
 
@@ -242,6 +339,8 @@ The following template does not include suggested correct answers.
 
       <solution>
           <div class="detailed-solution">
+            <p>Solution or Explanation Heading</p>
+            <p>Solution or explanation text</p>
           </div>
       </solution>
   </problem>
@@ -257,6 +356,21 @@ Formula Response (Math Expression Input Problems)
  :width: 600
  :alt: Image of a math expression input problem
 
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - ``<formularesponse>``
+     - 
+   * - ``<formulaequationinput>``
+     - 
+   * - ``<script type="loncapa/python">``
+     - 
+   * - <textline size="10" correct_answer="3"/>
+     - This tag includes the following attributes:
+       * size (required)
+       * correct_answer (optional)
+
 **Sample Problem XML**
 
 .. code-block:: xml
@@ -268,7 +382,7 @@ Formula Response (Math Expression Input Problems)
       <li>Use standard arithmetic operation symbols.</li>
       <li>Indicate multiplication explicitly by using an asterisk (*).</li>
       <li>Use a caret (^) to raise to a power.</li>
-      <li>Use an underscore (_) to indicate a subscript.</li>        
+      <li>Use an underscore (_) to indicate a subscript.</li>
       <li>Use parentheses to specify the order of operations.</li>
     </ul>
 
@@ -293,11 +407,35 @@ Formula Response (Math Expression Input Problems)
 
     <solution>
       <div class="detailed-solution">
-        <p>Explanation</p>
-
+        <p>Explanation or Solution Header</p>
+        <p>Explanation or solution text</p>
       </div>
     </solution>
   </problem>
+
+**Template XML**
+
+.. code-block:: xml
+
+  <problem>
+    <p>Problem text</p>
+    <formularesponse type="ci" samples="VARIABLES@LOWER_BOUNDS:UPPER_BOUNDS#NUMBER_OF_SAMPLES" answer="$VoVi">
+      <responseparam type="tolerance" default="0.00001"/>
+      <formulaequationinput size="20" />
+    </formularesponse>
+
+  <script type="loncapa/python">
+  VoVi = "(R_1*R_2)/R_3"
+  </script>
+
+    <solution>
+      <div class="detailed-solution">
+        <p>Explanation or Solution Header</p>
+        <p>Explanation or solution text</p>
+      </div>
+    </solution>
+  </problem>
+
 
 **XML Attribute Information**
 
@@ -338,16 +476,25 @@ size      (optional) defines the size (i.e. the width)
 Image Response
 --------------
 
-The Image Response input type presents an image and accepts clicks on the image as an answer.
-Images have to be uploaded to the courseware Assets directory. Response clicks are marked as correct if they are within a certain specified sub rectangle of the image canvas.
-
-*Note The Mozilla Firefox browser is currently not supported for this problem type.*
-
-Sample Problem:
+**Sample Problem**
 
 .. image:: ../Images/image294.png
  :width: 600
 
+**XML Tags**
+
+.. list-table::
+   :widths: 20 80
+   :header-rows: 1
+
+   * - ``<imageresponse>``
+     - 
+   * - ``<imageinput>``
+     - Specifies the image file and the region the student must click.
+       * src
+       * width
+       * height
+       * rectangle
 
 **Problem Code**:
 
@@ -355,26 +502,28 @@ Sample Problem:
 
   <problem>
     <p><b>Example Problem</b></p>
-  <startouttext/>
-      <p>You are given three shapes. Click on the triangle.</p>
+     <startouttext/>
+      <p>Click the triangle below.</p>
       <endouttext/>
       <imageresponse>
       <imageinput src="/static/threeshapes.png" width="220" height="150" rectangle="(80,40)-(130,90)" />
       </imageresponse>
   </problem>
 
-Template
+**Problem Template**
 
 .. code-block:: xml
 
   <problem>
-      <imageresponse>
-      <imageinput src="Path_to_Image_File.png" width="220" height="150" rectangle="(80,40)-(130,90)" />
-      </imageresponse>
+    <startouttext/>
+      <p>Click the triangle below.</p>
+    <endouttext/>
+        <imageresponse>
+         <imageinput src="IMAGE FILE PATH" width="NUMBER" height="NUMBER" rectangle="(X-AXIS,Y-AXIS)-(X-AXIS,Y-AXIS)" />
+        </imageresponse>
   </problem>
 
-XML Attribute Information
-
+**XML Attribute Information**
 
 <imageresponse>
 
