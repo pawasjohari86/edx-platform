@@ -2,7 +2,7 @@
 Staffing
 ##########################
 
-You can designate a team of people to help you run your course. 
+You can designate a team of people to help you run your course. Two roles are available to provide different levels of access to options for working with students, grading, and other course staff.
 
 * Staff members
 
@@ -16,7 +16,7 @@ You can also designate people to help you beta test a course, and to moderate an
 Staff roles
 **********************
 
-To give different options for running the course to different members of your team, you assign the Course Staff role or the Instructor role.
+To give different levels of access to LMS features, you assign the Course Staff role or the Instructor role.
 
 **Course Staff** can: 
 
@@ -30,7 +30,7 @@ To give different options for running the course to different members of your te
 
 * See course HTML errors.
 
-**Instructors** have all of the same options for running the course as the course staff. They can also:
+**Instructors** have access to all of the same options for running the course as the course staff. They can also:
 
 * Add and remove course staff.
 
@@ -44,9 +44,11 @@ To give different options for running the course to different members of your te
 Assign staff roles 
 **********************
 
-Before you can assign the course staff or instructor role, you need the email address of each team member. 
+Before you can assign the course staff or instructor role to a team member:
 
-**Question**: do they need to be enrolled in the course first? 
+* You need the email address of each team member. 
+
+* Each team member must register a user account for that email address and enroll in your course.
 
 To assign a staff role:
 

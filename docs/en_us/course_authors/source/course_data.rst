@@ -4,7 +4,13 @@
 Course Data
 ############################
 
-After you create a course, you can access information about it from the Instructor Dashboard. 
+After you create a course, you can access information about it from the Instructor Dashboard. You can find:
+
+* Identifying information for the course.
+
+* Whether the course has started or ended.
+
+* The defined grade cutoff for passing or failing.
 
 To view course data:
 
@@ -14,7 +20,7 @@ To view course data:
 
 #. Click **Course Info** if necessary. 
 
-   The Basic Course Information section of the page that opens lists identifying information for the course, indicates whether it has started or ended, and shows the defined grade cutoff for passing or failing.
+   The Basic Course Information section of the page that opens lists information for the course.
 
 .. You also use the Instructor Dashboard to set up the staff for your course, enroll students and access student data, and initiate, review, and adjust grades.
 
