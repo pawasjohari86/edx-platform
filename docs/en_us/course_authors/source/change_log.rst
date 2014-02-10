@@ -11,6 +11,8 @@ Change Log
 
    * - Date
      - Change
+   * - 02/10/14
+     - Added section :ref:`Shuffle Answers in a Multiple Choice Problem`
    * - 02/05/14
      - Added section :ref:`Set the Advertised Start Date`
    * - 02/04/14
