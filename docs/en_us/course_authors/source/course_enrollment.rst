@@ -6,9 +6,11 @@ Enrollment
 
 Course authors and instructors can enroll students in a course, see how many people are enrolled, and, when necessary, unenroll students.
 
-For the enrollment period that is defined for a course, enrollment in an edX course (on www.edx.org) is publicly available to anyone who registers an edX account. Enrollment in other courses, such as those on edge.edx.org, is limited to the group of students you give the course URL to, and students that you enroll. 
+For the enrollment period that is defined for a course, students can enroll in your course. For an edX course (on www.edx.org), enrollment is publicly available to anyone who registers an edX account. For other courses, such as those on edge.edx.org, enrollment is limited to the students that you enroll and the students you give the course URL to. 
 
 **Question**: is the above accurate?
+
+* :ref:`registration_enrollment`
 
 * :ref:`enroll_student`
 
@@ -16,6 +18,7 @@ For the enrollment period that is defined for a course, enrollment in an edX cou
 
 * :ref:`unenroll_student`
 
+.. _registration_enrollment:
 
 *********************************
 Registration and Enrollment
@@ -23,7 +26,7 @@ Registration and Enrollment
 
 Before a student can be enrolled in a course, he or she must:
 
-#. Register a user account, which includes supplying a valid email address, on `www.edx.org`, `edge.edx.org`, or your implementation of the edX platform.
+#. Register a user account, which includes supplying a valid email address, on ``www.edx.org``, ``edge.edx.org``, or your implementation of the edX platform.
 
 #. Activate the registered account by following the emailed instructions.
 
@@ -31,9 +34,9 @@ Students can then enroll themselves in any edx.org course, and can enroll in oth
 
 Course authors and instructors can enroll students in a course either before or after they register their user accounts. You enroll students in a course by entering email addresses. When you enroll students, you have options to:
 
-* Auto enroll. Enrolls any student who already has a registered user account in the course immediately. Students who are not registered are enrolled as soon as they do register and activate a user account for the same email address. As a result, students do not need to perform the explicit course enrollment step.
+* **Auto Enroll**. Enrolls any student who already has a registered user account in the course immediately. Students who are not registered are enrolled as soon as they do register and activate a user account for the same email address. As a result, students do not need to perform the explicit course enrollment step.
 
-* Notify students by email. The email message includes the name of the course, a link to the registration page, and a reminder to use the email address that you supplied for the student. 
+* **Notify students by email**. The email message includes the name of the course, a link to the registration page, and a reminder to use the email address that you supplied for the student. Even if you do not choose to send a notification, enrolled students see your course on their dashboard when they log in.
 
 .. _enroll_student:
 
@@ -51,9 +54,9 @@ You enroll students in your course by supplying their email addresses.
 
 #. In the Batch Enrollment section of the page, enter an email address or multiple addresses separated by commas or line feeds.
 
-#. Optionally, select **Auto Enroll**. 
+#. Optionally, select **Auto Enroll** to streamline the course enrollment process for the students. See :ref:`registration_enrollment`.description of 
 
-#. Optionally, select **Notify students by email**. 
+#. Optionally, select **Notify students by email** to notify students by email. See :ref:`registration_enrollment`. 
 
 #. Click **Enroll**.
 
