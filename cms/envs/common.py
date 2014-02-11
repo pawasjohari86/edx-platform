@@ -459,6 +459,7 @@ INSTALLED_APPS = (
 
     # User preferences
     'user_api',
+    'django_openid_auth',
 )
 
 
