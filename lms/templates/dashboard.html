@@ -4,6 +4,27 @@
   from django.core.urlresolvers import reverse
   import waffle
 %>
+
+<%doc>
+I would like to do this to pull from the advanced setting first
+and then use the platform setting if no advanced setting exists,
+but this template has mentions of "Certificates" without having
+a course object to get advanced settings from...
+
+  cert_name_singular = course.certificate_name_singular
+  if cert_name_singular is "":
+    cert_name_singular = settings.CERT_NAME_SINGULAR
+  
+  cert_name_plural = course.certificate_name_plural
+  if cert_name_plural is "":
+    cert_name_plural = settings.CERT_NAME_PLURAL
+</%doc>
+
+<%
+  cert_name_singular = settings.CERT_NAME_SINGULAR
+  cert_name_plural = settings.CERT_NAME_PLURAL
+%>
+
 <%inherit file="main.html" />
 
 <%namespace name='static' file='static_content.html'/>

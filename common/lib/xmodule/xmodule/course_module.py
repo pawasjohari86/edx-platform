@@ -354,6 +354,18 @@ class CourseFields(object):
         # Ensure that courses imported from XML keep their image
         default="images_course_image.jpg"
     )
+    
+    ## Course level Certificate Name overrides.
+    certificate_name_singular = String(
+        help="Sitewide text to describe completion statements given to students (singular)",
+        scope=Scope.settings,
+        default=""
+    )
+    certificate_name_plural = String(
+        help="Sitewide text to describe completion statements given to students (plural)",
+        scope=Scope.settings,
+        default=""
+    )
 
     # An extra property is used rather than the wiki_slug/number because
     # there are courses that change the number for different runs. This allows

@@ -1237,6 +1237,10 @@ REGISTRATION_EXTRA_FIELDS = {
     'country': 'hidden',
 }
 
+########################## CERTIFICATE NAME ########################
+CERT_NAME_SINGULAR = "Certificate of Achievement"
+CERT_NAME_PLURAL = "Certificates of Achievement"
+
 ###################### Grade Downloads ######################
 GRADES_DOWNLOAD_ROUTING_KEY = HIGH_MEM_QUEUE
 
