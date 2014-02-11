@@ -11,12 +11,19 @@ GRADER_TYPE_IMAGE_DICT = {
     'BC': '/static/images/ml_grading_icon.png',
 }
 
+_ = lambda text: text
+
 HUMAN_GRADER_TYPE = {
-    'SA': 'Self-Assessment',
-    'PE': 'Peer-Assessment',
-    'IN': 'Instructor-Assessment',
-    'ML': 'AI-Assessment',
-    'BC': 'AI-Assessment',
+    # Translators: "Self-Assessment" refers to the self-assessed mode of openended evaluation
+    'SA': _('Self-Assessment'),
+    # Translators: "Peer-Assessment" refers to the peer-assessed mode of openended evaluation
+    'PE': _('Peer-Assessment'),
+    # Translators: "Instructor-Assessment" refers to the instructor-assessed mode of openended evaluation
+    'IN': _('Instructor-Assessment'),
+    # Translators: "AI-Assessment" refers to the AI-assessed mode of openended evaluation
+    'ML': _('AI-Assessment'),
+    # Translators: "AI-Assessment" refers to the AI-assessed mode of openended evaluation
+    'BC': _('AI-Assessment'),
 }
 
 DO_NOT_DISPLAY = ['BC', 'IN']
@@ -245,17 +252,20 @@ class CombinedOpenEndedRubric(object):
             else:
                 correct.append(.5)
 
-        html = self.system.render_template('{0}/open_ended_combined_rubric.html'.format(self.TEMPLATE_DIR),
-                                           {'categories': rubric_categories,
-                                            'max_scores': max_scores,
-                                            'correct' : correct,
-                                            'has_score': True,
-                                            'view_only': True,
-                                            'max_score': max_score,
-                                            'combined_rubric': True,
-                                            'grader_type_image_dict': GRADER_TYPE_IMAGE_DICT,
-                                            'human_grader_types': HUMAN_GRADER_TYPE,
-                                           })
+        html = self.system.render_template(
+            '{0}/open_ended_combined_rubric.html'.format(self.TEMPLATE_DIR),
+            {
+                'categories': rubric_categories,
+                'max_scores': max_scores,
+                'correct' : correct,
+                'has_score': True,
+                'view_only': True,
+                'max_score': max_score,
+                'combined_rubric': True,
+                'grader_type_image_dict': GRADER_TYPE_IMAGE_DICT,
+                'human_grader_types': HUMAN_GRADER_TYPE,
+            }
+        )
         return html
 
     @staticmethod
