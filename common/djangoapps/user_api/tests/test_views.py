@@ -3,11 +3,12 @@ import base64
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.test.utils import override_settings
+from django.core.urlresolvers import reverse
 import json
 import re
 from student.tests.factories import UserFactory
 from unittest import SkipTest
-from user_api.models import UserPreference
+from user_api.models import UserPreference, LANGUAGE_KEY
 from user_api.tests.factories import UserPreferenceFactory
 
 
@@ -137,9 +138,10 @@ class UserViewSetTest(UserApiTestCase):
     def test_basic_auth(self):
         # ensure that having basic auth headers in the mix does not break anything
         self.assertHttpOK(
-                self.request_with_auth("get", self.LIST_URI, **self.basic_auth('someuser', 'somepass')))
+            self.request_with_auth("get", self.LIST_URI,
+                                   **self.basic_auth('someuser', 'somepass')))
         self.assertHttpForbidden(
-                self.client.get(self.LIST_URI, **self.basic_auth('someuser', 'somepass')))
+            self.client.get(self.LIST_URI, **self.basic_auth('someuser', 'somepass')))
 
     def test_get_list_empty(self):
         User.objects.all().delete()
@@ -357,3 +359,29 @@ class UserPreferenceViewSetTest(UserApiTestCase):
                 "url": uri,
             }
         )
+
+
+class TestLanguageSetting(TestCase):
+    """
+    Test setting languages
+    """
+    def test_set_preference_happy(self):
+        user = UserFactory.create()
+        self.client.login(username=user.username, password='test')
+
+        lang = 'en'
+        response = self.client.post(reverse('user_api_set_language'), {'language': lang})
+
+        self.assertEqual(response.status_code, 200)
+        user_pref = UserPreference.get_preference(user, LANGUAGE_KEY)
+        self.assertEqual(user_pref, lang)
+
+    def test_set_preference_missing_lang(self):
+        user = UserFactory.create()
+        self.client.login(username=user.username, password='test')
+
+        response = self.client.post(reverse('user_api_set_language'))
+
+        self.assertEqual(response.status_code, 400)
+
+        self.assertIsNone(UserPreference.get_preference(user, LANGUAGE_KEY))
