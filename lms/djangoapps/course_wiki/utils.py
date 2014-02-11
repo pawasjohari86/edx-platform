@@ -67,12 +67,21 @@ def course_wiki_slug(course):
 def user_is_staff_on_course_number(user_groups, course_number):
     """Returns whether the groups contain a staff group for the course number"""
 
-    # Course groups have format 'instructor_<course_id>' and 'staff_<course_id>' where
-    # course_id = org/course_number/run. So check if user's groups contain a group
+    user_groups_names = [group.name.lower() for group in user_groups]
+
+    # Course role names can have format 'instructor_package_id' or 'staff_package_id' where
+    # package_id = org.course_number.run. So check if user's groups contain a group
+    # whose name starts with 'instructor_' or 'staff_' and contains '.course_number.'.
+    course_number_dot_fragment = '.{0}.'.format(course_number.lower())
+
+    # Course role names can also have format 'instructor_<course_id>' and 'staff_<course_id>' where
+    # course_id = org/course_number/run. So also check if user's groups contain a group
     # whose name starts with 'instructor_' or 'staff_' and contains '/course_number/'.
-    course_number_fragment = '/{0}/'.format(course_number)
-    if [group for group in user_groups if (group.name.startswith(('instructor_', 'staff_')) and
-                                           course_number_fragment in group.name)]:
+    course_number_slash_fragment = '/{0}/'.format(course_number.lower())
+
+    if [name for name in user_groups_names if (name.startswith(('instructor_', 'staff_')) and
+                                               (course_number_dot_fragment in name or
+                                                course_number_slash_fragment in name))]:
         return True
 
     # Old course groups had format 'instructor_<course_number>' and 'staff_<course_number>'
