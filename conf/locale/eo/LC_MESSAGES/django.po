@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-02-11 18:20-0500\n"
+"POT-Creation-Date: 2014-02-12 11:14-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -508,6 +508,7 @@ msgstr ""
 
 #. Translators: 'grader' refers to the edX automatic code grader.
 #: common/lib/capa/capa/responsetypes.py
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
 msgid "Invalid grader reply. Please contact the course staff."
 msgstr ""
 "Ìnvälïd grädér réplý. Pléäsé çöntäçt thé çöürsé stäff. Ⱡ'σяєм ιρѕυм ∂σ#"
@@ -672,6 +673,193 @@ msgid "A YouTube URL or a link to a file hosted anywhere on the web."
 msgstr ""
 "À ÝöüTüßé ÛRL ör ä lïnk tö ä fïlé höstéd änýwhéré ön thé wéß. Ⱡ'σяєм ιρѕυм "
 "∂σłσя#"
+
+#. Translators: "Self" is used to denote an openended response that is self-
+#. graded
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_modulev1.py
+msgid "Self"
+msgstr "Sélf Ⱡ'σяєм#"
+
+#. Translators: "AI" is used to denote an openended response that is machine-
+#. graded
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_modulev1.py
+msgid "AI"
+msgstr "ÀÌ Ⱡ'#"
+
+#. Translators: "Peer" is used to denote an openended response that is peer-
+#. graded
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_modulev1.py
+msgid "Peer"
+msgstr "Péér Ⱡ'σяєм#"
+
+#. Translators: "Not started" is used to communicate to a student that their
+#. response
+#. has not yet been graded
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_modulev1.py
+msgid "Not started."
+msgstr "Nöt stärtéd. Ⱡ#"
+
+#. Translators: "Being scored." is used to communicate to a student that their
+#. response
+#. are in the process of being scored
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_modulev1.py
+msgid "Being scored."
+msgstr "Béïng sçöréd. Ⱡ'#"
+
+#. Translators: "Scoring finished" is used to communicate to a student that
+#. their response
+#. have been scored, but the full scoring process is not yet complete
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_modulev1.py
+msgid "Scoring finished."
+msgstr "Sçörïng fïnïshéd. Ⱡ'σ#"
+
+#. Translators: "Complete" is used to communicate to a student that their
+#. openended response has been fully scored
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_modulev1.py
+msgid "Complete."
+msgstr "Çömplété. #"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_modulev1.py
+msgid "Scored rubric"
+msgstr "Sçöréd rüßrïç Ⱡ'#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_modulev1.py
+#, python-brace-format
+msgid ""
+"You have attempted this question {number_of_student_attempts} times. You are"
+" only allowed to attempt it {max_number_of_attempts} times."
+msgstr ""
+"Ýöü hävé ättémptéd thïs qüéstïön {number_of_student_attempts} tïmés. Ýöü äré"
+" önlý ällöwéd tö ättémpt ït {max_number_of_attempts} tïmés. Ⱡ'σяєм ιρѕυм "
+"∂σłσя ѕιт αмєт#"
+
+#. Translators: "Self-Assessment" refers to the self-assessed mode of
+#. openended evaluation
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_rubric.py
+msgid "Self-Assessment"
+msgstr "Sélf-Àsséssmént Ⱡ'#"
+
+#. Translators: "Peer-Assessment" refers to the peer-assessed mode of
+#. openended evaluation
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_rubric.py
+msgid "Peer-Assessment"
+msgstr "Péér-Àsséssmént Ⱡ'#"
+
+#. Translators: "Instructor-Assessment" refers to the instructor-assessed mode
+#. of openended evaluation
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_rubric.py
+msgid "Instructor-Assessment"
+msgstr "Ìnstrüçtör-Àsséssmént Ⱡ'σя#"
+
+#. Translators: "AI-Assessment" refers to the AI-assessed mode of openended
+#. evaluation
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_rubric.py
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/combined_open_ended_rubric.py
+msgid "AI-Assessment"
+msgstr "ÀÌ-Àsséssmént Ⱡ'#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+#, python-brace-format
+msgid ""
+"Could not find needed tag {0} in the survey responses. Please try submitting"
+" again."
+msgstr ""
+"Çöüld nöt fïnd néédéd täg {0} ïn thé sürvéý réspönsés. Pléäsé trý süßmïttïng"
+" ägäïn. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αм#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+msgid "There was an error saving your feedback. Please contact course staff."
+msgstr ""
+"Théré wäs än érrör sävïng ýöür féédßäçk. Pléäsé çöntäçt çöürsé stäff. Ⱡ'σяєм"
+" ιρѕυм ∂σłσя ѕ#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+msgid "Couldn't submit feedback."
+msgstr "Çöüldn't süßmït féédßäçk. Ⱡ'σяєм#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+msgid "Successfully saved your feedback."
+msgstr "Süççéssfüllý sävéd ýöür féédßäçk. Ⱡ'σяєм ι#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+msgid "Unable to save your feedback. Please try again later."
+msgstr ""
+"Ûnäßlé tö sävé ýöür féédßäçk. Pléäsé trý ägäïn lätér. Ⱡ'σяєм ιρѕυм ∂σ#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+msgid "Successfully saved your submission."
+msgstr "Süççéssfüllý sävéd ýöür süßmïssïön. Ⱡ'σяєм ιρ#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+msgid "Unable to submit your submission to grader. Please try again later."
+msgstr ""
+"Ûnäßlé tö süßmït ýöür süßmïssïön tö grädér. Pléäsé trý ägäïn lätér. Ⱡ'σяєм "
+"ιρѕυм ∂σłσя ѕ#"
+
+#. Translators: this is displayed when there is an error with
+#. The openended grader
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+msgid "Error getting feedback from grader."
+msgstr "Érrör géttïng féédßäçk fröm grädér. Ⱡ'σяєм ιρ#"
+
+#. Translators: this string is shown to the user when
+#. no feedback is available from the openended response grader
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+msgid "No feedback available from grader."
+msgstr "Nö féédßäçk äväïläßlé fröm grädér. Ⱡ'σяєм ιρ#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+msgid "Error handling action. Please try again."
+msgstr "Érrör händlïng äçtïön. Pléäsé trý ägäïn. Ⱡ'σяєм ιρѕυ#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/open_ended_module.py
+msgid ""
+"Your response has been submitted. Please check back later for your grade."
+msgstr ""
+"Ýöür réspönsé häs ßéén süßmïttéd. Pléäsé çhéçk ßäçk lätér för ýöür grädé. "
+"Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/openendedchild.py
+msgid ""
+"We could not find a file in your submission. Please try choosing a file or "
+"pasting a link to your file into the answer box."
+msgstr ""
+"Wé çöüld nöt fïnd ä fïlé ïn ýöür süßmïssïön. Pléäsé trý çhöösïng ä fïlé ör "
+"pästïng ä lïnk tö ýöür fïlé ïntö thé änswér ßöx. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт "
+"αмєт, ¢σηѕє¢тєт#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/openendedchild.py
+msgid ""
+"We are having trouble saving your file. Please try another file or paste a "
+"link to your file into the answer box."
+msgstr ""
+"Wé äré hävïng tröüßlé sävïng ýöür fïlé. Pléäsé trý änöthér fïlé ör pästé ä "
+"lïnk tö ýöür fïlé ïntö thé änswér ßöx. Ⱡ'σяєм ιρѕυм ∂σłσя ѕιт αмєт, ¢σηѕє¢#"
+
+#. Translators: "Not started" communicates to a student that their response
+#. has not yet been graded
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/openendedchild.py
+msgid "Not started"
+msgstr "Nöt stärtéd Ⱡ#"
+
+#. Translators: "In progress" communicates to a student that their response
+#. is currently in the grading process
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/openendedchild.py
+msgid "In progress"
+msgstr "Ìn prögréss Ⱡ#"
+
+#. Translators: "Done" communicates to a student that their response
+#. has been fully graded
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/openendedchild.py
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/openendedchild.py
+msgid "Done"
+msgstr "Döné Ⱡ'σяєм#"
+
+#: common/lib/xmodule/xmodule/open_ended_grading_classes/self_assessment_module.py
+msgid "Error saving your score.  Please notify course staff."
+msgstr ""
+"Érrör sävïng ýöür sçöré.  Pléäsé nötïfý çöürsé stäff. Ⱡ'σяєм ιρѕυм ∂σ#"
 
 #: common/static/js/vendor/mathjax-MathJax-c9db6ac/docs/source/mjtheme/layout.html
 msgid "Navigation"
@@ -5032,6 +5220,10 @@ msgstr "Süßmïttéd Rüßrïç Ⱡ'σ#"
 msgid "Toggle Full Rubric"
 msgstr "Tögglé Füll Rüßrïç Ⱡ'σ#"
 
+#: lms/templates/combinedopenended/combined_open_ended_results.html
+msgid "{result_of_task} from grader {number}"
+msgstr "{result_of_task} fröm grädér {number} Ⱡ'σя#"
+
 #: lms/templates/combinedopenended/open_ended_result_table.html
 msgid "See full feedback"
 msgstr "Séé füll féédßäçk Ⱡ'σ#"
@@ -5080,6 +5272,12 @@ msgstr "Àddïtïönäl çömménts: Ⱡ'σя#"
 #: lms/templates/combinedopenended/openended/open_ended_evaluation.html
 msgid "Submit Feedback"
 msgstr "Süßmït Féédßäçk Ⱡ'#"
+
+#: lms/templates/combinedopenended/openended/open_ended.html
+#: lms/templates/combinedopenended/selfassessment/self_assessment_prompt.html
+#: lms/templates/open_ended_problems/open_ended_flagged_problems.html
+msgid "Response"
+msgstr "Réspönsé #"
 
 #: lms/templates/combinedopenended/openended/open_ended.html
 msgid "Unanswered"
@@ -7321,10 +7519,6 @@ msgstr ""
 #: lms/templates/open_ended_problems/open_ended_flagged_problems.html
 msgid "No flagged problems exist."
 msgstr "Nö fläggéd prößléms éxïst. Ⱡ'σяєм#"
-
-#: lms/templates/open_ended_problems/open_ended_flagged_problems.html
-msgid "Response"
-msgstr "Réspönsé #"
 
 #: lms/templates/open_ended_problems/open_ended_flagged_problems.html
 msgid "Unflag"
