@@ -2,15 +2,17 @@
 Staffing
 ##########################
 
-You can designate a team of people to help you run your course. Two roles are available to provide different levels of access to options for working with students, grading, and other course staff.
+You can designate a team of people to help you run your course. Two roles are available to give your team members access to different options for working with students, grades, and other course staff.
 
 * Staff members
 
 * Instructors
 
-**Question**: how does this team, set up on the Instructor Dashboard, differ from the "Course Team Members" that you add in Studio (Settings > Course Team)?
+.. **Question**: how does this team, set up on the Instructor Dashboard, differ from the "Course Team Members" that you add in Studio (Settings > Course Team)?
 
-You can also designate people to help you beta test a course, and to moderate and manage discussions. For more information, see :ref:`Beta_Testing` and :ref:`Assigning_discussion_roles`. 
+You can also designate people to help you beta test a course and to moderate and manage discussions. Beta testers and discussion administrators must be enrolled in your course, but you do not need to give them a staff role. For more information, see :ref:`Assigning_discussion_roles`. 
+
+.. insert ":ref:`Beta_Testing` and " above after "see"
 
 **********************
 Staff roles

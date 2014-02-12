@@ -6,9 +6,7 @@ Enrollment
 
 Course authors and instructors can enroll students in a course, see how many people are enrolled, and, when necessary, unenroll students.
 
-For the enrollment period that is defined for a course, students can enroll in your course. For an edX course (on www.edx.org), enrollment is publicly available to anyone who registers an edX account. For other courses, such as those on edge.edx.org, enrollment is limited to the students that you enroll and the students you give the course URL to. 
-
-**Question**: is the above accurate?
+Students can enroll themselves in a course during its defined enrollment period. For an edX course (on ``www.edx.org``), enrollment is publicly available to anyone who registers an edX account. For other courses, such as those on ``edge.edx.org``, enrollment is limited to the students that you explicitly enroll and the students you give the course URL to. 
 
 * :ref:`registration_enrollment`
 
@@ -30,9 +28,19 @@ Before a student can be enrolled in a course, he or she must:
 
 #. Activate the registered account by following the emailed instructions.
 
-Students can then enroll themselves in any edx.org course, and can enroll in other courses if they know the URL. For a more detailed description of this process from a student's point of view, see :ref:`APPENDIX C: Sample Student Login Guide`. 
+Students can then enroll themselves in an edx.org course, and can enroll in other courses if they know the URL. For a more detailed description of this process from a student's point of view, see :doc:`appendices/c`. 
 
-Course authors and instructors can enroll students in a course either before or after they register their user accounts. You enroll students in a course by entering email addresses. When you enroll students, you have options to:
+Course authors and instructors can enroll students in a course either before or after they register their user accounts. 
+
+.. _enroll_student:
+
+*********************************
+Enroll Students in a Course
+*********************************
+
+You enroll students in your course by supplying their email addresses. After the **Enrollment End Date** for a course students can no longer enroll themselves; however, you can still explicitly enroll students.
+
+When you enroll students, you have options to:
 
 * **Auto Enroll**. Enrolls any student who already has a registered user account in the course immediately. Students who are not registered are enrolled as soon as they register and activate a user account for the same email address. As a result, students do not need to complete the explicit course enrollment step.
 
@@ -42,13 +50,6 @@ Course authors and instructors can enroll students in a course either before or 
 
   .. image:: Images/Course_Enrollment_Email.png
 
-.. _enroll_student:
-
-*********************************
-Enroll Students in a Course
-*********************************
-
-You enroll students in your course by supplying their email addresses. 
 
 #. View the live version of your course.
 
@@ -58,9 +59,9 @@ You enroll students in your course by supplying their email addresses.
 
 #. In the Batch Enrollment section of the page, enter an email address or multiple addresses separated by commas or line feeds.
 
-#. Optionally, select **Auto Enroll** to streamline the course enrollment process for the students. See :ref:`registration_enrollment`.description of 
+#. Optionally, select **Auto Enroll** to streamline the course enrollment process for the students. 
 
-#. Optionally, select **Notify students by email** to notify students by email. See :ref:`registration_enrollment`. 
+#. Optionally, select **Notify students by email** to notify students by email. 
 
 #. Click **Enroll**.
 
@@ -76,7 +77,7 @@ After you create a course, you can access the total number of people who are enr
 
 * Students can unenroll from courses, and course authors and instructors can unenroll students when necessary. 
 
-  **Note**: The enrollment count is for current enrollments, and does not include historically enrolled students.
+  **Note**: The enrollment count displays the number of currently enrolled students, staff, and instructors. It is not a historical total of everyone who has ever enrolled in the course.
 
 To view the enrollment count for a course:
 
@@ -96,11 +97,11 @@ You can also view or download a list of the people who are enrolled in the cours
 Unenroll students from a course
 *********************************
 
-You remove students from a course by unenrolling them. To prevent students from re-enrolling, you must also close course enrollment. You use Studio to set the Enrollment End Date for the course to a date in the past. See :ref:`Set Important Dates for Your Course`.
+You remove students from a course by unenrolling them. To prevent students from re-enrolling, course enrollment must also be closed. You use Studio to set the **Enrollment End Date** for the course to a date in the past. See :ref:`Set Important Dates for Your Course`.
 
 To unenroll students, you supply the email addresses of enrolled students. 
 
-**Note**: Unenrollment does not delete data for a student. An unenrolled student's state remains in the database. 
+**Note**: Unenrollment does not delete data for a student. An unenrolled student's state remains in the database and is reinstated if the student does re-enroll. 
 
 #. View the live version of your course.
 
