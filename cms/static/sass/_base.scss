@@ -327,48 +327,38 @@ p, ul, ol, dl {
     // layout with navigation
     &.has-navigation {
 
-      .navigation-link:before {
-        content: " / ";
-        margin: ($baseline/4);
-        color: inherit;
-
-        &:hover {
-          color: inherit;
-        }
-      }
-
       .nav-actions {
         bottom: -($baseline*1.5);
       }
 
-      .navigation .navigation-link:first-child:before {
-        content: "";
-        margin: 0px;
-      }
-
       .navigation-link {
+        @extend %cont-truncated;
         display: inline-block;
-        overflow: hidden;
         max-width: 150px;
-        color: inherit;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-
-        &:hover {
-          color: $blue-s1;
-
-          &:before {
-          	color: $gray-l2;
-          }
-        }
 
         &.navigation-current {
+          @extend %ui-disabled;
           color: $gray;
 
           &:before {
             color: $gray;
           }
         }
+      }
+
+      .navigation-link:before {
+        content: " / ";
+        margin: ($baseline/4);
+        color: $gray;
+
+        &:hover {
+          color: $gray;
+        }
+      }
+
+      .navigation .navigation-link:first-child:before {
+        content: "";
+        margin: 0;
       }
     }
   }
