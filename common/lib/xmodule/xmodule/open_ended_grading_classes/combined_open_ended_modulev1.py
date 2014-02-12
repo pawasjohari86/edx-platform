@@ -872,6 +872,11 @@ class CombinedOpenEndedV1Module():
                 )
                 contexts.append({
                     'result': rubric_html,
+                    # Translators: "Scored rubric" appears to a user as part of a longer
+                    # string that looks something like: "Scored rubric from grader 1".
+                    # "Scored" is an adjective that modifies the noun "rubric".
+                    # That longer string appears when a user is viewing a graded rubric
+                    # returned from one of the graders of their openended response problem.
                     'task_name': ugettext('Scored rubric'),
                     'feedback' : feedback
                 })
@@ -1145,12 +1150,19 @@ class CombinedOpenEndedV1Module():
         """
         return dict out-of-sync error message, and also log.
         """
+        _ = self.system.service(self, "i18n").ugettext
         #This is a dev_facing_error
-        log.warning("Combined module state out sync. state: %r, data: %r. %s",
-                    self.state, data, msg)
+        log.warning(
+            "Combined module state out sync. state: %r, data: %r. %s",
+            self.state,
+            data,
+            msg
+        )
         #This is a student_facing_error
-        return {'success': False,
-                'error': 'The problem state got out-of-sync.  Please try reloading the page.'}
+        return {
+            'success': False,
+            'error': _('The problem state got out-of-sync. Please try reloading the page.')
+        }
 
     @classmethod
     def service_declaration(cls, service_name):

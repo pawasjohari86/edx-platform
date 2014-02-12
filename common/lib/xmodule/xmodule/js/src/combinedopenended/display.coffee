@@ -249,6 +249,8 @@ class @CombinedOpenEnded
     fd.append('submission_id', submission_id)
     fd.append('grader_id', grader_id)
     if(!score)
+      # Translators: a rating in this context is a rating a student gives
+      # to a grader's evaluation for an openended problem
       @gentle_alert gettext "You need to pick a rating before you can submit."
       return
     else
@@ -293,6 +295,9 @@ class @CombinedOpenEnded
       @replace_text_inputs()
       @hint_area.attr('disabled', true)
       if @task_number<@task_count
+        # Translators: this message appears when transitioning between openended grading
+        # types (i.e. self assesment to peer assessment). Sometimes, if a student
+        # did not perform well at one step, they cannot move on to the next one.
         @gentle_alert gettext "Your score did not meet the criteria to move to the next step."
     else if @child_state == 'initial'
       @answer_area.attr("disabled", false)
@@ -305,6 +310,8 @@ class @CombinedOpenEnded
       @answer_area.attr("disabled", true)
       @replace_text_inputs()
       @hide_file_upload()
+      # Translators: one clicks this button after one has finished filling out the grading
+      # form for an openended assessment
       @submit_button.prop('value', gettext 'Submit assessment')
       @submit_button.click @save_assessment
       @submit_button.attr("disabled",true)
@@ -321,6 +328,8 @@ class @CombinedOpenEnded
         @skip_post_assessment()
       @answer_area.attr("disabled", true)
       @replace_text_inputs()
+      # Translators: this button is clicked to submit a student's rating of
+      # an evaluator's assessment
       @submit_button.prop('value', gettext 'Submit post-assessment')
       if @child_type=="selfassessment"
          @submit_button.click @save_hint
@@ -378,6 +387,8 @@ class @CombinedOpenEnded
       @gentle_alert response.error
 
   confirm_save_answer: (event) =>
+    # This string appears in a confirmation box after one tries to submit
+    # an openended problem
     confirmation_text = gettext 'Please confirm that you wish to submit your work. You will not be able to make any changes after submitting.' 
     @save_answer(event) if confirm(confirmation_text)
 
@@ -525,6 +536,9 @@ class @CombinedOpenEnded
           if !response.allow_reset
             @gentle_alert gettext "Moved to next step."
           else
+            # Translators: this message appears when transitioning between openended grading
+            # types (i.e. self assesment to peer assessment). Sometimes, if a student
+            # did not perform well at one step, they cannot move on to the next one.
             @gentle_alert gettext "Your score did not meet the criteria to move to the next step."
             @show_combined_rubric_current()
         else
@@ -562,7 +576,7 @@ class @CombinedOpenEnded
         @$(@file_upload_preview_sel).hide()
         @$(@file_upload_box_sel).change @preview_image
       else
-        @gentle_alert gettext 'File uploads are required for this question, but are not supported in this browser. Try the newest version of google chrome.  Alternatively, if you have uploaded the image to the web, you can paste a link to it into the answer box.'
+        @gentle_alert gettext 'File uploads are required for this question, but are not supported in your browser. Try the newest version of Google Chrome. Alternatively, if you have uploaded the image to another website, you can paste a link to it into the answer box.'
 
   hide_file_upload: =>
     if @accept_file_upload == "True"
@@ -584,10 +598,14 @@ class @CombinedOpenEnded
     @prompt_container.slideToggle()
     @prompt_container.toggleClass('open')
     if @prompt_container.hasClass('open')
+      # Translators: "Show Question" is some text that, when clicked, shows a question's
+      # content that had been hidden
       new_text = gettext "Show Question"
-      Logger.log 'oe_hide_question', {location: @location}
-    else
       Logger.log 'oe_show_question', {location: @location}
+    else
+      # Translators: "Hide Question" is some text that, when clicked, hides a question's
+      # content
+      Logger.log 'oe_hide_question', {location: @location}
       new_text = gettext "Hide Question"
     @question_header.text(new_text)
     return false

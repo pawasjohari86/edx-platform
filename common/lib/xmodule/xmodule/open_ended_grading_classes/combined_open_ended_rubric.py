@@ -20,9 +20,9 @@ HUMAN_GRADER_TYPE = {
     'PE': _('Peer-Assessment'),
     # Translators: "Instructor-Assessment" refers to the instructor-assessed mode of openended evaluation
     'IN': _('Instructor-Assessment'),
-    # Translators: "AI-Assessment" refers to the AI-assessed mode of openended evaluation
+    # Translators: "AI-Assessment" refers to the machine-graded mode of openended evaluation
     'ML': _('AI-Assessment'),
-    # Translators: "AI-Assessment" refers to the AI-assessed mode of openended evaluation
+    # Translators: "AI-Assessment" refers to the machine-graded mode of openended evaluation
     'BC': _('AI-Assessment'),
 }
 
@@ -70,13 +70,16 @@ class CombinedOpenEndedRubric(object):
             rubric_template = '{0}/open_ended_rubric.html'.format(self.TEMPLATE_DIR)
             if self.view_only:
                 rubric_template = '{0}/open_ended_view_only_rubric.html'.format(self.TEMPLATE_DIR)
-            html = self.system.render_template(rubric_template,
-                                               {'categories': rubric_categories,
-                                                'has_score': self.has_score,
-                                                'view_only': self.view_only,
-                                                'max_score': max_score,
-                                                'combined_rubric': False
-                                               })
+            html = self.system.render_template(
+                rubric_template,
+                {
+                    'categories': rubric_categories,
+                    'has_score': self.has_score,
+                    'view_only': self.view_only,
+                    'max_score': max_score,
+                    'combined_rubric': False
+                }
+            )
             success = True
         except:
             #This is a staff_facing_error
@@ -159,7 +162,6 @@ class CombinedOpenEndedRubric(object):
             raise RubricParsingError(
                 "[extract_category] Category {0} is missing a score. Contact the learning sciences group for assistance.".format(
                     descriptionxml.text))
-
 
         # parse description
         if descriptionxml.tag != 'description':

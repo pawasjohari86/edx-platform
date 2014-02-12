@@ -26,14 +26,6 @@ MAX_ATTEMPTS = 1
 MAX_SCORE = 1
 
 _ = lambda text: text
-FILE_NOT_FOUND_IN_RESPONSE_MESSAGE = _(
-    "We could not find a file in your submission. "
-    "Please try choosing a file or pasting a link to your file into the answer box."
-)
-ERROR_SAVING_FILE_MESSAGE = _(
-    "We are having trouble saving your file. "
-    "Please try another file or paste a link to your file into the answer box."
-)
 
 
 def upload_to_s3(file_to_upload, keyname, s3_interface):
@@ -481,7 +473,7 @@ class OpenEndedChild(object):
         @return: Boolean success, and updated AJAX data dictionary.
         """
 
-        ugettext = self.system.service(self, "i18n").ugettext
+        _ = self.system.service(self, "i18n").ugettext
 
         error_message = ""
 
@@ -501,7 +493,11 @@ class OpenEndedChild(object):
                 # If success is False, we have not found a link, and no file was attached.
                 # Show error to student.
                 if success is False:
-                    error_message = ugettext(FILE_NOT_FOUND_IN_RESPONSE_MESSAGE)
+                    error_message = _(
+                        "We could not find a file in your submission. "
+                        "Please try choosing a file or pasting a URL to your "
+                        "file into the answer box."
+                    )
 
         except Exception:
             # In this case, an image was submitted by the student, but the image could not be uploaded to S3.  Likely
@@ -510,7 +506,10 @@ class OpenEndedChild(object):
                           "but the image was not able to be uploaded to S3.  This could indicate a configuration "
                           "issue with this deployment and the S3_INTERFACE setting.")
             success = False
-            error_message = ugettext(ERROR_SAVING_FILE_MESSAGE)
+            error_message = _(
+                "We are having trouble saving your file. Please try another "
+                "file or paste a URL to your file into the answer box."
+            )
 
         return success, error_message, data
 

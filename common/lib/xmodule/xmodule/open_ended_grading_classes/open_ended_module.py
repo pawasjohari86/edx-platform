@@ -158,11 +158,13 @@ class OpenEndedModule(openendedchild.OpenEndedChild):
                 return {
                     'success': False,
                     # Translators: 'tag' is one of 'feedback', 'submission_id',
-                    # 'grader_id', or 'score'
+                    # 'grader_id', or 'score'. They are categories that a student
+                    # responds to when filling out a post-assessment survey
+                    # of his or her grade from an openended problem.
                     'msg': _(
-                        "Could not find needed tag {0} in the survey "
+                        "Could not find needed tag {tag_name} in the survey "
                         "responses. Please try submitting again."
-                    ).format(tag)
+                    ).format(tag_name=tag)
                 }
         try:
             submission_id = int(survey_responses['submission_id'])
@@ -295,7 +297,9 @@ class OpenEndedModule(openendedchild.OpenEndedChild):
         message = _("Successfully saved your submission.")
         if error:
             success = False
-            message = _('Unable to submit your submission to grader. Please try again later.')
+            # The `grader` refers to the grading service open response problems
+            # are sent to, either to be machine-graded, peer-graded, or instructor-graded.
+            message = _('Unable to submit your submission to the grader. Please try again later.')
             log.error("Unable to submit to grader. location: {0}, error_message: {1}".format(
                 self.location_string, error_message
             ))
@@ -313,6 +317,8 @@ class OpenEndedModule(openendedchild.OpenEndedChild):
         _ = self.system.service(self, "i18n").ugettext
         new_score_msg = self._parse_score_msg(score_msg, system)
         if not new_score_msg['valid']:
+            # The `grader` refers to the grading service open response problems
+            # are sent to, either to be machine-graded, peer-graded, or instructor-graded.
             new_score_msg['feedback'] = _('Invalid grader reply. Please contact the course staff.')
 
         # self.child_history is initialized as [].  record_latest_score() and record_latest_post_assessment()
@@ -424,6 +430,8 @@ class OpenEndedModule(openendedchild.OpenEndedChild):
             if tag not in response_items:
                 # This is a student_facing_error
                 return format_feedback(
+                    # The `grader` refers to the grading service open response problems
+                    # are sent to, either to be machine-graded, peer-graded, or instructor-graded.
                     'errors', _('Error getting feedback from grader.')
                 )
 
@@ -435,8 +443,8 @@ class OpenEndedModule(openendedchild.OpenEndedChild):
             log.exception("feedback_items from external open ended grader have invalid json {0}".format(feedback_items))
             # This is a student_facing_error
             return format_feedback(
-                # Translators: this is displayed when there is an error with
-                # The openended grader
+                # The `grader` refers to the grading service open response problems
+                # are sent to, either to be machine-graded, peer-graded, or instructor-graded.
                 'errors', _('Error getting feedback from grader.')
             )
 
@@ -444,8 +452,8 @@ class OpenEndedModule(openendedchild.OpenEndedChild):
             if len(feedback) == 0:
                 # This is a student_facing_error
                 return format_feedback(
-                    # Translators: this string is shown to the user when
-                    # no feedback is available from the openended response grader
+                    # The `grader` refers to the grading service open response problems
+                    # are sent to, either to be machine-graded, peer-graded, or instructor-graded.
                     'errors', _('No feedback available from grader.')
                 )
 
