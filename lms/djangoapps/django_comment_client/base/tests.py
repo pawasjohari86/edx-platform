@@ -107,6 +107,137 @@ class ViewsTestCase(UrlResetMixin, ModuleStoreTestCase):
         )
         assert_equal(response.status_code, 200)
 
+    def _test_request_error(self, view_name, view_kwargs, data, mock_request):
+        mock_request.return_value.status_code = 200
+        # This represents the minimum fields required to allow checking of permissions
+        mock_request.return_value.text = json.dumps({
+            "user_id": str(self.student.id),
+            "closed": False,
+        })
+
+        response = self.client.post(
+            reverse(
+                "create_thread",
+                kwargs={"commentable_id": "dummy", "course_id": self.course_id}
+            ),
+            data={"body": "foo"}
+        )
+        self.assertEqual(response.status_code, 400)
+        for call in mock_request.call_args_list:
+            self.assertEqual(call[0][0] == "GET")
+
+    def test_create_thread_no_title(self, mock_request):
+        self._test_request_error(
+            "create_thread",
+            {"commentable_id": "dummy", "course_id": self.course_id},
+            {"body": "foo"},
+            mock_request
+        )
+
+    def test_create_thread_empty_title(self, mock_request):
+        self._test_request_error(
+            "create_thread",
+            {"commentable_id": "dummy", "course_id": self.course_id},
+            {"body": "foo", "title": ""},
+            mock_request
+        )
+
+    def test_create_thread_no_body(self, mock_request):
+        self._test_request_error(
+            "create_thread",
+            {"commentable_id": "dummy", "course_id": self.course_id},
+            {"title": "foo"},
+            mock_request
+        )
+
+    def test_create_thread_empty_body(self, mock_request):
+        self._test_request_error(
+            "create_thread",
+            {"commentable_id": "dummy", "course_id": self.course_id},
+            {"body": "", "title": "foo"},
+            mock_request
+        )
+
+    def test_update_thread_no_title(self, mock_request):
+        self._test_request_error(
+            "update_thread",
+            {"thread_id": "dummy", "course_id": self.course_id},
+            {"body": "foo"},
+            mock_request
+        )
+
+    def test_update_thread_empty_title(self, mock_request):
+        self._test_request_error(
+            "update_thread",
+            {"thread_id": "dummy", "course_id": self.course_id},
+            {"body": "foo", "title": ""},
+            mock_request
+        )
+
+    def test_update_thread_no_body(self, mock_request):
+        self._test_request_error(
+            "update_thread",
+            {"thread_id": "dummy", "course_id": self.course_id},
+            {"title": "foo"},
+            mock_request
+        )
+        
+    def test_update_thread_empty_body(self, mock_request):
+        self._test_request_error(
+            "update_thread",
+            {"thread_id": "dummy", "course_id": self.course_id},
+            {"body": "", "title": "foo"},
+            mock_request
+        )
+
+    def test_create_comment_no_body(self, mock_request):
+        self._test_request_error(
+            "create_comment",
+            {"thread_id": "dummy", "course_id": self.course_id},
+            {},
+            mock_request
+        )
+
+    def test_create_comment_empty_body(self, mock_request):
+        self._test_request_error(
+            "create_comment",
+            {"thread_id": "dummy", "course_id": self.course_id},
+            {"body": ""},
+            mock_request
+        )
+
+    def test_create_sub_comment_no_body(self, mock_request):
+        self._test_request_error(
+            "create_sub_comment",
+            {"comment_id": "dummy", "course_id": self.course_id},
+            {},
+            mock_request
+        )
+
+    def test_create_sub_comment_empty_body(self, mock_request):
+        self._test_request_error(
+            "create_sub_comment",
+            {"comment_id": "dummy", "course_id": self.course_id},
+            {"body": ""},
+            mock_request
+        )
+
+    def test_update_comment_no_body(self, mock_request):
+        self._test_request_error(
+            "update_comment",
+            {"comment_id": "dummy", "course_id": self.course_id},
+            {},
+            mock_request
+        )
+
+    def test_update_comment_empty_body(self, mock_request):
+        self._test_request_error(
+            "update_comment",
+            {"comment_id": "dummy", "course_id": self.course_id},
+            {"body": ""},
+            mock_request
+        )
+
     def test_flag_thread(self, mock_request):
         mock_request.return_value.status_code = 200
         mock_request.return_value.text = u'{"title":"Hello",\
