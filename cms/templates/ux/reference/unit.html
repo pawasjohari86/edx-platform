@@ -17,13 +17,144 @@ from django.utils.translation import ugettext as _
 </div>
 <div class="main-column">
 <article class="unit-body window">
-<p class="unit-name-input"><label for="unit-display-name-input">Display Name:</label><input type="text" value="New Unit" id="unit-display-name-input" class="unit-display-name-input"></p>
+<p class="unit-name-input">
+    <label for="unit-display-name-input">Display Name:</label>
+    <input type="text" value="New Unit" id="unit-display-name-input" class="unit-display-name-input">
+</p>
 <ol class="components ui-sortable">
-<li class="component" data-locator="andya.AA101.2014_T1/branch/draft/block/htmlc8f">
+    <li class="component" data-locator="andya.AA101.2014_T1/branch/draft/block/htmlc8f">
+        <div class="wrapper wrapper-component-editor">
+            <div class="component-editor">
+                <div class="component-edit-header">
+                    <span class="component-name"></span>
+                    <ul class="nav-edit-modes">
+                        <li id="editor-mode" class="mode active-mode" aria-controls="editor-tab" role="tab">
+                            <a href="#">Editor</a>
+                        </li>
+                        <li id="settings-mode" class="mode active-mode" aria-controls="settings-tab" role="tab">
+                            <a href="#">Settings</a>
+                        </li>
+                    </ul>
+                </div> <!-- Editor Header -->
+
+                <div class="component-edit-modes">
+                    <div class="module-editor">
+                        <section class="xblock xblock-studio_view xmodule_edit xmodule_HtmlDescriptor" data-runtime-version="1" data-init="XBlockToXModuleShim" data-handler-prefix="/preview/xblock/i4x:;_;_andya;_AA101;_html;_c8fb4780eb554aec95c6231680eb82cf/handler" data-type="HTMLEditingDescriptor" data-block-type="html">
+                            <div class="wrapper-comp-editor" id="editor-tab" data-base-asset-url="/c4x/andya/AA101/asset/">
+                                <section class="html-editor editor">
+                                    <ul class="editor-tabs">
+                                        <li><a href="#" class="visual-tab tab current" data-tab="visual">Visual</a></li>
+                                        <li><a href="#" class="html-tab tab" data-tab="advanced">HTML</a></li>
+                                    </ul>
+
+                                    <div class="row">
+                                        <textarea class="tiny-mce">&lt;ol&gt;
+                                            &lt;li&gt;
+                                            &lt;h2&gt; September 21 &lt;/h2&gt;
+                                            &lt;section class='update-description'&gt;
+                                            &lt;section class='primary'&gt;
+                                            &lt;p&gt; Words of encouragement! This is a short note that most students will read. &lt;/p&gt;
+                                            &lt;p class='author'&gt;Anant  Agarwal (6.002x Principal Instructor)&lt;/p&gt;
+                                            &lt;/section&gt;
+                                            &lt;p&gt;&lt;h3&gt;Primary versus Secondary Updates:&lt;/h3&gt; Unfortunately, the internet throws a lot of text at students, and they
+                                            do not read everything that they are given. However, many students &lt;em&gt;do&lt;/em&gt; read all that they are
+                                            given, and so detailed explainations in this section will benefit the most concientious.
+                                            Any essential information should be extremely quickly summarized in the primary section for skimmers.&lt;/p&gt;
+                                            &lt;p&gt;&lt;h3&gt;Star Forum Poster&lt;/h3&gt;
+                                            Students appriciate knowing that the course staff is reading what they post, and one of several ways
+                                            that you can do this is by acknowledging the star posters in your announcements.
+                                            &lt;/p&gt;
+                                            &lt;/section&gt;
+                                            &lt;/li&gt;
+                                            &lt;/ol&gt;
+                                        </textarea>
+                                        <textarea name="" class="edit-box">&lt;ol&gt;
+                                            &lt;li&gt;
+                                            &lt;h2&gt; September 21 &lt;/h2&gt;
+                                            &lt;section class='update-description'&gt;
+                                            &lt;section class='primary'&gt;
+                                            &lt;p&gt; Words of encouragement! This is a short note that most students will read. &lt;/p&gt;
+                                            &lt;p class='author'&gt;Anant  Agarwal (6.002x Principal Instructor)&lt;/p&gt;
+                                            &lt;/section&gt;
+                                            &lt;p&gt;&lt;h3&gt;Primary versus Secondary Updates:&lt;/h3&gt; Unfortunately, the internet throws a lot of text at students, and they
+                                            do not read everything that they are given. However, many students &lt;em&gt;do&lt;/em&gt; read all that they are
+                                            given, and so detailed explainations in this section will benefit the most concientious.
+                                            Any essential information should be extremely quickly summarized in the primary section for skimmers.&lt;/p&gt;
+                                            &lt;p&gt;&lt;h3&gt;Star Forum Poster&lt;/h3&gt;
+                                            Students appriciate knowing that the course staff is reading what they post, and one of several ways
+                                            that you can do this is by acknowledging the star posters in your announcements.
+                                            &lt;/p&gt;
+                                            &lt;/section&gt;
+                                            &lt;/li&gt;
+                                            &lt;/ol&gt;
+                                        </textarea>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="wrapper-comp-settings metadata_edit" id="settings-tab" data-metadata="{&quot;display_name&quot;: {&quot;default_value&quot;: &quot;Text&quot;, &quot;explicitly_set&quot;: true, &quot;display_name&quot;: &quot;Display Name&quot;, &quot;help&quot;: &quot;This name appears in the horizontal navigation at the top of the page.&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;Announcement&quot;, &quot;field_name&quot;: &quot;display_name&quot;, &quot;options&quot;: []}}">
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="row module-actions">
+                    <a href="#" class="save-button action-primary action">Save</a>
+                    <a href="#" class="cancel-button action-secondary action">Cancel</a>
+                </div> <!-- Module Actions-->
+            </div>
+        </div>
+        <div class="wrapper wrapper-component-action-header">
+            <div class="component-header">
+                Announcement
+            </div>
+            <ul class="component-actions">
+                <li class="action-item action-edit">
+                    <a href="#" class="edit-button action-button">
+                        <i class="icon-edit"></i>
+                        <span class="action-button-text">Edit</span>
+                    </a>
+                </li>
+                <li class="action-item action-duplicate">
+                    <a href="#" data-tooltip="Duplicate" class="duplicate-button action-button">
+                        <i class="icon-copy"></i>
+                        <span class="sr">Duplicate this component</span>
+                    </a>
+                </li>
+                <li class="action-item action-delete">
+                    <a href="#" data-tooltip="Delete" class="delete-button action-button">
+                        <i class="icon-trash"></i>
+                        <span class="sr">Delete this component</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <span data-tooltip="Drag to reorder" class="drag-handle"></span>
+        <section class="xblock xblock-student_view xmodule_display xmodule_HtmlModule" data-runtime-version="1" data-init="XBlockToXModuleShim" data-handler-prefix="/preview/xblock/i4x:;_;_andya;_AA101;_html;_c8fb4780eb554aec95c6231680eb82cf/handler" data-type="HTMLModule" data-block-type="html">
+            <ol>
+                <li>
+                    <h2> September 21 </h2>
+                    <section class="update-description">
+                        <section class="primary">
+                            <p> Words of encouragement! This is a short note that most students will read. </p>
+                            <p class="author">Anant  Agarwal (6.002x Principal Instructor)</p>
+                        </section>
+                        <p></p><h3>Primary versus Secondary Updates:</h3> Unfortunately, the internet throws a lot of text at students, and they
+                        do not read everything that they are given. However, many students <em>do</em> read all that they are
+                        given, and so detailed explainations in this section will benefit the most concientious.
+                        Any essential information should be extremely quickly summarized in the primary section for skimmers.<p></p>
+                        <p></p><h3>Star Forum Poster</h3>
+                        Students appriciate knowing that the course staff is reading what they post, and one of several ways
+                        that you can do this is by acknowledging the star posters in your announcements.
+                        <p></p>
+                    </section>
+                </li>
+            </ol>
+        </section>
+        </li>
+        <li class="component" data-locator="andya.AA101.2014_T1/branch/draft/block/videoda3">
 
 
-<div class="wrapper wrapper-component-editor">
-    <div class="component-editor">
+        <div class="wrapper wrapper-component-editor">
+        <div class="component-editor">
         <div class="component-edit-header">
             <span class="component-name"></span>
             <ul class="nav-edit-modes">
@@ -37,239 +168,97 @@ from django.utils.translation import ugettext as _
         </div> <!-- Editor Header -->
 
         <div class="component-edit-modes">
-            <div class="module-editor">
-                <section class="xblock xblock-studio_view xmodule_edit xmodule_HtmlDescriptor" data-runtime-version="1" data-init="XBlockToXModuleShim" data-handler-prefix="/preview/xblock/i4x:;_;_andya;_AA101;_html;_c8fb4780eb554aec95c6231680eb82cf/handler" data-type="HTMLEditingDescriptor" data-block-type="html">
+        <div class="module-editor">
+        <section class="xblock xblock-studio_view xmodule_edit xmodule_VideoDescriptor" data-runtime-version="1" data-init="XBlockToXModuleShim" data-handler-prefix="/preview/xblock/i4x:;_;_andya;_AA101;_video;_da30d8c1da6d43268152e19089ecc2fa/handler" data-type="TabsEditingDescriptor" data-block-type="video">
 
-
-                    <div class="wrapper-comp-editor" id="editor-tab" data-base-asset-url="/c4x/andya/AA101/asset/">
-                        <section class="html-editor editor">
-                            <ul class="editor-tabs">
-                                <li><a href="#" class="visual-tab tab current" data-tab="visual">Visual</a></li>
-                                <li><a href="#" class="html-tab tab" data-tab="advanced">HTML</a></li>
-                            </ul>
-
-                            <div class="row">
-                                <textarea class="tiny-mce">&lt;ol&gt;
-                                    &lt;li&gt;
-                                    &lt;h2&gt; September 21 &lt;/h2&gt;
-                                    &lt;section class='update-description'&gt;
-                                    &lt;section class='primary'&gt;
-                                    &lt;p&gt; Words of encouragement! This is a short note that most students will read. &lt;/p&gt;
-                                    &lt;p class='author'&gt;Anant  Agarwal (6.002x Principal Instructor)&lt;/p&gt;
-                                    &lt;/section&gt;
-                                    &lt;p&gt;&lt;h3&gt;Primary versus Secondary Updates:&lt;/h3&gt; Unfortunately, the internet throws a lot of text at students, and they
-                                    do not read everything that they are given. However, many students &lt;em&gt;do&lt;/em&gt; read all that they are
-                                    given, and so detailed explainations in this section will benefit the most concientious.
-                                    Any essential information should be extremely quickly summarized in the primary section for skimmers.&lt;/p&gt;
-                                    &lt;p&gt;&lt;h3&gt;Star Forum Poster&lt;/h3&gt;
-                                    Students appriciate knowing that the course staff is reading what they post, and one of several ways
-                                    that you can do this is by acknowledging the star posters in your announcements.
-                                    &lt;/p&gt;
-                                    &lt;/section&gt;
-                                    &lt;/li&gt;
-                                    &lt;/ol&gt;
-                                </textarea>
-                                <textarea name="" class="edit-box">&lt;ol&gt;
-                                    &lt;li&gt;
-                                    &lt;h2&gt; September 21 &lt;/h2&gt;
-                                    &lt;section class='update-description'&gt;
-                                    &lt;section class='primary'&gt;
-                                    &lt;p&gt; Words of encouragement! This is a short note that most students will read. &lt;/p&gt;
-                                    &lt;p class='author'&gt;Anant  Agarwal (6.002x Principal Instructor)&lt;/p&gt;
-                                    &lt;/section&gt;
-                                    &lt;p&gt;&lt;h3&gt;Primary versus Secondary Updates:&lt;/h3&gt; Unfortunately, the internet throws a lot of text at students, and they
-                                    do not read everything that they are given. However, many students &lt;em&gt;do&lt;/em&gt; read all that they are
-                                    given, and so detailed explainations in this section will benefit the most concientious.
-                                    Any essential information should be extremely quickly summarized in the primary section for skimmers.&lt;/p&gt;
-                                    &lt;p&gt;&lt;h3&gt;Star Forum Poster&lt;/h3&gt;
-                                    Students appriciate knowing that the course staff is reading what they post, and one of several ways
-                                    that you can do this is by acknowledging the star posters in your announcements.
-                                    &lt;/p&gt;
-                                    &lt;/section&gt;
-                                    &lt;/li&gt;
-                                    &lt;/ol&gt;
-                                </textarea>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div class="wrapper-comp-settings metadata_edit" id="settings-tab" data-metadata="{&quot;display_name&quot;: {&quot;default_value&quot;: &quot;Text&quot;, &quot;explicitly_set&quot;: true, &quot;display_name&quot;: &quot;Display Name&quot;, &quot;help&quot;: &quot;This name appears in the horizontal navigation at the top of the page.&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;Announcement&quot;, &quot;field_name&quot;: &quot;display_name&quot;, &quot;options&quot;: []}}"></div>
-
-
-                </section>
-
-            </div>
+        <div class="wrapper-comp-editor" id="editor-tab-i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa" data-html_id="i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa">
+        <section class="editor-with-tabs">
+        <div class="edit-header">
+            <span class="component-name"></span>
+            <ul class="editor-tabs">
+                <li class="inner_tab_wrap"><a href="#tab-i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa-0" class="tab current">Basic</a></li>
+                <li class="inner_tab_wrap"><a href="#tab-i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa-1" class="tab ">Advanced</a></li>
+            </ul>
         </div>
-        <div class="row module-actions">
-            <a href="#" class="save-button action-primary action">Save</a>
-            <a href="#" class="cancel-button action-secondary action">Cancel</a>
-        </div> <!-- Module Actions-->
-    </div>
-</div>
-<div class="wrapper wrapper-component-action-header">
-    <div class="component-header">
-        Announcement
-    </div>
-    <ul class="component-actions">
-        <li class="action-item action-edit">
-            <a href="#" class="edit-button action-button">
-                <i class="icon-edit"></i>
-                <span class="action-button-text">Edit</span>
-            </a>
-        </li>
-        <li class="action-item action-duplicate">
-            <a href="#" data-tooltip="Duplicate" class="duplicate-button action-button">
-                <i class="icon-copy"></i>
-                <span class="sr">Duplicate this component</span>
-            </a>
-        </li>
-        <li class="action-item action-delete">
-            <a href="#" data-tooltip="Delete" class="delete-button action-button">
-                <i class="icon-trash"></i>
-                <span class="sr">Delete this component</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<span data-tooltip="Drag to reorder" class="drag-handle"></span>
-<section class="xblock xblock-student_view xmodule_display xmodule_HtmlModule" data-runtime-version="1" data-init="XBlockToXModuleShim" data-handler-prefix="/preview/xblock/i4x:;_;_andya;_AA101;_html;_c8fb4780eb554aec95c6231680eb82cf/handler" data-type="HTMLModule" data-block-type="html">
-    <ol>
-        <li>
-            <h2> September 21 </h2>
-            <section class="update-description">
-                <section class="primary">
-                    <p> Words of encouragement! This is a short note that most students will read. </p>
-                    <p class="author">Anant  Agarwal (6.002x Principal Instructor)</p>
-                </section>
-                <p></p><h3>Primary versus Secondary Updates:</h3> Unfortunately, the internet throws a lot of text at students, and they
-                do not read everything that they are given. However, many students <em>do</em> read all that they are
-                given, and so detailed explainations in this section will benefit the most concientious.
-                Any essential information should be extremely quickly summarized in the primary section for skimmers.<p></p>
-                <p></p><h3>Star Forum Poster</h3>
-                Students appriciate knowing that the course staff is reading what they post, and one of several ways
-                that you can do this is by acknowledging the star posters in your announcements.
-                <p></p>
-            </section>
-        </li>
-    </ol>
+        <div class="tabs-wrapper">
+        <div class="component-tab " id="tab-i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa-0">
 
-</section>
+        <div class="wrapper-comp-settings basic_metadata_edit" data-metadata="{&quot;display_name&quot;: {&quot;default_value&quot;: &quot;Video&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Display Name&quot;, &quot;help&quot;: &quot;Display name for this module.&quot;, &quot;field_name&quot;: &quot;display_name&quot;, &quot;value&quot;: &quot;Video&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;options&quot;: []}, &quot;video_url&quot;: {&quot;default_value&quot;: [&quot;http://youtu.be/OEoXaMPEzfM&quot;], &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Video URL&quot;, &quot;help&quot;: &quot;A YouTube URL or a link to a file hosted anywhere on the web.&quot;, &quot;field_name&quot;: &quot;video_url&quot;, &quot;value&quot;: [&quot;http://youtu.be/OEoXaMPEzfM&quot;], &quot;type&quot;: &quot;VideoList&quot;, &quot;options&quot;: []}}">
+            <ul class="list-input settings-list">
 
-
-</li><li class="component" data-locator="andya.AA101.2014_T1/branch/draft/block/videoda3">
-
-
-<div class="wrapper wrapper-component-editor">
-<div class="component-editor">
-<div class="component-edit-header">
-    <span class="component-name"></span>
-    <ul class="nav-edit-modes">
-        <li id="editor-mode" class="mode active-mode" aria-controls="editor-tab" role="tab">
-            <a href="#">Editor</a>
-        </li>
-        <li id="settings-mode" class="mode active-mode" aria-controls="settings-tab" role="tab">
-            <a href="#">Settings</a>
-        </li>
-    </ul>
-</div> <!-- Editor Header -->
-
-<div class="component-edit-modes">
-<div class="module-editor">
-<section class="xblock xblock-studio_view xmodule_edit xmodule_VideoDescriptor" data-runtime-version="1" data-init="XBlockToXModuleShim" data-handler-prefix="/preview/xblock/i4x:;_;_andya;_AA101;_video;_da30d8c1da6d43268152e19089ecc2fa/handler" data-type="TabsEditingDescriptor" data-block-type="video">
-
-<div class="wrapper-comp-editor" id="editor-tab-i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa" data-html_id="i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa">
-<section class="editor-with-tabs">
-<div class="edit-header">
-    <span class="component-name"></span>
-    <ul class="editor-tabs">
-        <li class="inner_tab_wrap"><a href="#tab-i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa-0" class="tab current">Basic</a></li>
-        <li class="inner_tab_wrap"><a href="#tab-i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa-1" class="tab ">Advanced</a></li>
-    </ul>
-</div>
-<div class="tabs-wrapper">
-<div class="component-tab " id="tab-i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa-0">
-
-<div class="wrapper-comp-settings basic_metadata_edit" data-metadata="{&quot;display_name&quot;: {&quot;default_value&quot;: &quot;Video&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Display Name&quot;, &quot;help&quot;: &quot;Display name for this module.&quot;, &quot;field_name&quot;: &quot;display_name&quot;, &quot;value&quot;: &quot;Video&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;options&quot;: []}, &quot;video_url&quot;: {&quot;default_value&quot;: [&quot;http://youtu.be/OEoXaMPEzfM&quot;], &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Video URL&quot;, &quot;help&quot;: &quot;A YouTube URL or a link to a file hosted anywhere on the web.&quot;, &quot;field_name&quot;: &quot;video_url&quot;, &quot;value&quot;: [&quot;http://youtu.be/OEoXaMPEzfM&quot;], &quot;type&quot;: &quot;VideoList&quot;, &quot;options&quot;: []}}">
-    <ul class="list-input settings-list">
-
-        <li class="field comp-setting-entry metadata_entry">
-            <div class="wrapper-comp-setting">
-                <label class="label setting-label" for="metadata-string-entry_28">Display Name</label>
-                <input class="input setting-input" type="text" id="metadata-string-entry_28" value="Video">
-                <button class="action setting-clear inactive" type="button" name="setting-clear" value="Clear" data-tooltip="Clear">
-                    <i class="icon-undo"></i><span class="sr">"Clear Value"</span>
-                </button>
-            </div>
-            <span class="tip setting-help">Display name for this module.</span>
-
-        </li>
-
-        <li class="field comp-setting-entry metadata_entry">
-            <div class="wrapper-comp-setting metadata-videolist-enum">
-                <label class="label setting-label" for="metadata-videolist-entry_33">Video URL</label>
-                <div class="wrapper-videolist-settings">
-                    <div class="wrapper-videolist-url videolist-settings-item"><input type="text" id="metadata-videolist-entry_33" class="input videolist-url" value="http://youtu.be/OEoXaMPEzfM" placeholder="http://youtube.com/"></div>
-                    <div class="tip videolist-url-tip setting-help">A YouTube URL or a link to a file hosted anywhere on the web.</div>
-                    <div class="wrapper-videolist-urls">
-                        <a href="#" class="collapse-action collapse-setting">
-                            <i class="icon-plus"></i>Add more video sources <span class="sr">Video URL</span>
-                        </a>
-                        <div class="videolist-extra-videos">
-                            <span class="tip videolist-extra-videos-tip setting-help">To be sure all students can view the video, we recommend providing alternate versions of the same video: mp4, webm and youtube (if available).</span>
-                            <ol class="videolist-settings">
-                                <li class="videolist-settings-item">
-                                    <input type="text" class="input" value="" placeholder="http://somesite.com/video.mp4">
-                                </li>
-                                <li class="videolist-settings-item">
-                                    <input type="text" class="input" value="" placeholder=".webm">
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="transcripts-status">
-                <label class="label setting-label transcripts-label">Timed Transcript</label>
-                <div class="wrapper-transcripts-message">
-                    <div class="transcripts-message-status status-error"><i class="icon-remove"></i>No Timed Transcript</div>
-                    <p class="transcripts-message">
-                        We don't have a timed transcript for this video on edX, but we found a transcript for this video on YouTube. Would you like to import it to edX?
-                    </p>
-                    <div class="transcripts-file-uploader">
-                        <div class="progress-bar is-invisible">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <form class="file-chooser" action="/transcripts/upload" method="post" enctype="multipart/form-data">
-                            <input type="file" class="file-input" name="file" accept=".srt">
-                            <input type="hidden" name="locator" value="andya.AA101.2014_T1/branch/draft/block/videoda3">
-                            <input type="hidden" name="video_list" value="[{&quot;mode&quot;:&quot;youtube&quot;,&quot;video&quot;:&quot;OEoXaMPEzfM&quot;,&quot;type&quot;:&quot;youtube&quot;}]">
-                        </form>
-
-                    </div>
-                    <p class="transcripts-error-message is-invisible">
-                        Error.
-                    </p>
-                    <div class="wrapper-transcripts-buttons">
-                        <button class="action setting-upload" type="button" name="setting-upload" value="Upload New Timed Transcript" data-tooltip="Upload New Timed Transcript">
-                            <span>Upload New Timed Transcript</span>
-                        </button>
-                        <button class="action setting-import" type="button" name="setting-import" value="Import from YouTube" data-tooltip="Import from YouTube">
-                            <span>Import from YouTube</span>
+                <li class="field comp-setting-entry metadata_entry">
+                    <div class="wrapper-comp-setting">
+                        <label class="label setting-label" for="metadata-string-entry_28">Display Name</label>
+                        <input class="input setting-input" type="text" id="metadata-string-entry_28" value="Video">
+                        <button class="action setting-clear inactive" type="button" name="setting-clear" value="Clear" data-tooltip="Clear">
+                            <i class="icon-undo"></i><span class="sr">"Clear Value"</span>
                         </button>
                     </div>
+                    <span class="tip setting-help">Display name for this module.</span>
 
-                </div>
-            </div>
+                </li>
 
-        </li>
+                <li class="field comp-setting-entry metadata_entry">
+                    <div class="wrapper-comp-setting metadata-videolist-enum">
+                        <label class="label setting-label" for="metadata-videolist-entry_33">Video URL</label>
+                        <div class="wrapper-videolist-settings">
+                            <div class="wrapper-videolist-url videolist-settings-item"><input type="text" id="metadata-videolist-entry_33" class="input videolist-url" value="http://youtu.be/OEoXaMPEzfM" placeholder="http://youtube.com/"></div>
+                            <div class="tip videolist-url-tip setting-help">A YouTube URL or a link to a file hosted anywhere on the web.</div>
+                            <div class="wrapper-videolist-urls">
+                                <a href="#" class="collapse-action collapse-setting">
+                                    <i class="icon-plus"></i>Add more video sources <span class="sr">Video URL</span>
+                                </a>
+                                <div class="videolist-extra-videos">
+                                    <span class="tip videolist-extra-videos-tip setting-help">To be sure all students can view the video, we recommend providing alternate versions of the same video: mp4, webm and youtube (if available).</span>
+                                    <ol class="videolist-settings">
+                                        <li class="videolist-settings-item">
+                                            <input type="text" class="input" value="" placeholder="http://somesite.com/video.mp4">
+                                        </li>
+                                        <li class="videolist-settings-item">
+                                            <input type="text" class="input" value="" placeholder=".webm">
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transcripts-status">
+                        <label class="label setting-label transcripts-label">Timed Transcript</label>
+                        <div class="wrapper-transcripts-message">
+                            <div class="transcripts-message-status status-error"><i class="icon-remove"></i>No Timed Transcript</div>
+                            <p class="transcripts-message">
+                                We dont have a timed transcript for this video on edX, but we found a transcript for this video on YouTube. Would you like to import it to edX?
+                            </p>
+                            <div class="transcripts-file-uploader">
+                                <div class="progress-bar is-invisible">
+                                    <div class="progress-fill"></div>
+                                </div>
+                                <form class="file-chooser" action="/transcripts/upload" method="post" enctype="multipart/form-data">
+                                    <input type="file" class="file-input" name="file" accept=".srt">
+                                    <input type="hidden" name="locator" value="andya.AA101.2014_T1/branch/draft/block/videoda3">
+                                    <input type="hidden" name="video_list" value="[{&quot;mode&quot;:&quot;youtube&quot;,&quot;video&quot;:&quot;OEoXaMPEzfM&quot;,&quot;type&quot;:&quot;youtube&quot;}]">
+                                </form>
 
-    </ul>
+                            </div>
+                            <p class="transcripts-error-message is-invisible">
+                                Error.
+                            </p>
+                            <div class="wrapper-transcripts-buttons">
+                                <button class="action setting-upload" type="button" name="setting-upload" value="Upload New Timed Transcript" data-tooltip="Upload New Timed Transcript">
+                                    <span>Upload New Timed Transcript</span>
+                                </button>
+                                <button class="action setting-import" type="button" name="setting-import" value="Import from YouTube" data-tooltip="Import from YouTube">
+                                    <span>Import from YouTube</span>
+                                </button>
+                            </div>
 
-</div>
+                        </div>
+                    </div>
 
-
-
-</div>
+                </li>
+            </ul>
+        </div>
+    </div>
 <div class="component-tab is-inactive" id="tab-i4x-andya-AA101-video-da30d8c1da6d43268152e19089ecc2fa-1">
 
 
@@ -277,15 +266,14 @@ from django.utils.translation import ugettext as _
     <div class="wrapper-comp-settings metadata_edit" id="settings-tab" data-metadata="{&quot;youtube_id_1_25&quot;: {&quot;default_value&quot;: &quot;&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Youtube ID for 1.25x speed&quot;, &quot;help&quot;: &quot;Optional, for older browsers: the Youtube ID for the 1.25x speed video.&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;&quot;, &quot;field_name&quot;: &quot;youtube_id_1_25&quot;, &quot;options&quot;: []}, &quot;download_video&quot;: {&quot;default_value&quot;: false, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Video Download Allowed&quot;, &quot;help&quot;: &quot;Show a link beneath the video to allow students to download the video. Note: You must add at least one video source below.&quot;, &quot;type&quot;: &quot;Select&quot;, &quot;value&quot;: false, &quot;field_name&quot;: &quot;download_video&quot;, &quot;options&quot;: [{&quot;display_name&quot;: &quot;True&quot;, &quot;value&quot;: true}, {&quot;display_name&quot;: &quot;False&quot;, &quot;value&quot;: false}]}, &quot;display_name&quot;: {&quot;default_value&quot;: &quot;Video&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Display Name&quot;, &quot;help&quot;: &quot;Display name for this module.&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;Video&quot;, &quot;field_name&quot;: &quot;display_name&quot;, &quot;options&quot;: []}, &quot;sub&quot;: {&quot;default_value&quot;: &quot;&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;HTML5 Transcript&quot;, &quot;help&quot;: &quot;The name of the timed transcript track (for non-Youtube videos).&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;&quot;, &quot;field_name&quot;: &quot;sub&quot;, &quot;options&quot;: []}, &quot;start_time&quot;: {&quot;default_value&quot;: &quot;00:00:00&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Start Time&quot;, &quot;help&quot;: &quot;Start time for the video (HH:MM:SS). Max value is 23:59:59.&quot;, &quot;type&quot;: &quot;RelativeTime&quot;, &quot;value&quot;: &quot;00:00:00&quot;, &quot;field_name&quot;: &quot;start_time&quot;, &quot;options&quot;: []}, &quot;youtube_id_1_0&quot;: {&quot;default_value&quot;: &quot;OEoXaMPEzfM&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Youtube ID&quot;, &quot;help&quot;: &quot;This is the Youtube ID reference for the normal speed video.&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;OEoXaMPEzfM&quot;, &quot;field_name&quot;: &quot;youtube_id_1_0&quot;, &quot;options&quot;: []}, &quot;html5_sources&quot;: {&quot;default_value&quot;: [], &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Video Sources&quot;, &quot;help&quot;: &quot;A list of filenames to be used with HTML5 video. The first supported filetype will be displayed.&quot;, &quot;type&quot;: &quot;List&quot;, &quot;value&quot;: [], &quot;field_name&quot;: &quot;html5_sources&quot;, &quot;options&quot;: []}, &quot;show_captions&quot;: {&quot;default_value&quot;: true, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Show Transcript&quot;, &quot;help&quot;: &quot;This controls whether or not captions are shown by default.&quot;, &quot;type&quot;: &quot;Select&quot;, &quot;value&quot;: true, &quot;field_name&quot;: &quot;show_captions&quot;, &quot;options&quot;: [{&quot;display_name&quot;: &quot;True&quot;, &quot;value&quot;: true}, {&quot;display_name&quot;: &quot;False&quot;, &quot;value&quot;: false}]}, &quot;download_track&quot;: {&quot;default_value&quot;: false, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Transcript Download Allowed&quot;, &quot;help&quot;: &quot;Show a link beneath the video to allow students to download the transcript. Note: You must add a link to the HTML5 Transcript field above.&quot;, &quot;type&quot;: &quot;Select&quot;, &quot;value&quot;: false, &quot;field_name&quot;: &quot;download_track&quot;, &quot;options&quot;: [{&quot;display_name&quot;: &quot;True&quot;, &quot;value&quot;: true}, {&quot;display_name&quot;: &quot;False&quot;, &quot;value&quot;: false}]}, &quot;youtube_id_1_5&quot;: {&quot;default_value&quot;: &quot;&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Youtube ID for 1.5x speed&quot;, &quot;help&quot;: &quot;Optional, for older browsers: the Youtube ID for the 1.5x speed video.&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;&quot;, &quot;field_name&quot;: &quot;youtube_id_1_5&quot;, &quot;options&quot;: []}, &quot;youtube_id_0_75&quot;: {&quot;default_value&quot;: &quot;&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Youtube ID for .75x speed&quot;, &quot;help&quot;: &quot;Optional, for older browsers: the Youtube ID for the .75x speed video.&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;&quot;, &quot;field_name&quot;: &quot;youtube_id_0_75&quot;, &quot;options&quot;: []}, &quot;end_time&quot;: {&quot;default_value&quot;: &quot;00:00:00&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;End Time&quot;, &quot;help&quot;: &quot;End time for the video (HH:MM:SS). Max value is 23:59:59.&quot;, &quot;type&quot;: &quot;RelativeTime&quot;, &quot;value&quot;: &quot;00:00:00&quot;, &quot;field_name&quot;: &quot;end_time&quot;, &quot;options&quot;: []}}"></div>
 
 
-</div>
-</div>
-</section>
+            </div>
+        </div>
+    </section>
 </div>
 
 
-</section>
-
-</div>
+        </section>
+    </div>
 </div>
 <div class="row module-actions">
     <a href="#" class="save-button action-primary action">Save</a>
@@ -385,87 +373,28 @@ from django.utils.translation import ugettext as _
 </section>
 
 
-</li><li class="component" data-locator="andya.AA101.2014_T1/branch/draft/block/discussion116" style="display: list-item;">
-
-
-<div class="wrapper wrapper-component-editor">
-    <div class="component-editor">
-        <div class="component-edit-header">
-            <span class="component-name"></span>
-            <ul class="nav-edit-modes">
-                <li id="editor-mode" class="mode active-mode" aria-controls="editor-tab" role="tab">
-                    <a href="#">Editor</a>
-                </li>
-                <li id="settings-mode" class="mode active-mode" aria-controls="settings-tab" role="tab">
-                    <a href="#">Settings</a>
-                </li>
-            </ul>
-        </div> <!-- Editor Header -->
-
-        <div class="component-edit-modes">
-            <div class="module-editor">
-                <section class="xblock xblock-studio_view xmodule_edit xmodule_DiscussionDescriptor" data-runtime-version="1" data-init="XBlockToXModuleShim" data-handler-prefix="/preview/xblock/i4x:;_;_andya;_AA101;_discussion;_1167bd23944d48e59f80819611a6a528/handler" data-type="MetadataOnlyEditingDescriptor" data-block-type="discussion">
-
-
-
-
-
-                    <div class="wrapper-comp-settings metadata_edit" id="settings-tab" data-metadata="{&quot;discussion_category&quot;: {&quot;default_value&quot;: &quot;Week 1&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Category&quot;, &quot;help&quot;: &quot;A category name for the discussion. This name appears in the left pane of the discussion forum for the course.&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;Week 1&quot;, &quot;field_name&quot;: &quot;discussion_category&quot;, &quot;options&quot;: []}, &quot;discussion_target&quot;: {&quot;default_value&quot;: &quot;Topic-Level Student-Visible Label&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Subcategory&quot;, &quot;help&quot;: &quot;A subcategory name for the discussion. This name appears in the left pane of the discussion forum for the course.&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;Topic-Level Student-Visible Label&quot;, &quot;field_name&quot;: &quot;discussion_target&quot;, &quot;options&quot;: []}, &quot;display_name&quot;: {&quot;default_value&quot;: &quot;Discussion&quot;, &quot;explicitly_set&quot;: false, &quot;display_name&quot;: &quot;Display Name&quot;, &quot;help&quot;: &quot;Display name for this module&quot;, &quot;type&quot;: &quot;Generic&quot;, &quot;value&quot;: &quot;Discussion&quot;, &quot;field_name&quot;: &quot;display_name&quot;, &quot;options&quot;: []}}"></div>
-
-
-                </section>
-
+</li>
+<li class="xblock-listitem">
+    <section class="xblock-wrapper xblock-type-container xblock-wrapper-elementlevel">
+        <header class="xblock-header">
+            <div class="header-details">
+                Randomize Block
             </div>
-        </div>
-        <div class="row module-actions">
-            <a href="#" class="save-button action-primary action">Save</a>
-            <a href="#" class="cancel-button action-secondary action">Cancel</a>
-        </div> <!-- Module Actions-->
-    </div>
-</div>
-<div class="wrapper wrapper-component-action-header">
-    <div class="component-header">
-        Discussion
-    </div>
-    <ul class="component-actions">
-        <li class="action-item action-edit">
-            <a href="#" class="edit-button action-button">
-                <i class="icon-edit"></i>
-                <span class="action-button-text">Edit</span>
-            </a>
-        </li>
-        <li class="action-item action-duplicate">
-            <a href="#" data-tooltip="Duplicate" class="duplicate-button action-button">
-                <i class="icon-copy"></i>
-                <span class="sr">Duplicate this component</span>
-            </a>
-        </li>
-        <li class="action-item action-delete">
-            <a href="#" data-tooltip="Delete" class="delete-button action-button">
-                <i class="icon-trash"></i>
-                <span class="sr">Delete this component</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<span data-tooltip="Drag to reorder" class="drag-handle"></span>
-<section class="xblock xblock-student_view xmodule_display xmodule_DiscussionModule" data-runtime-version="1" data-init="XBlockToXModuleShim" data-handler-prefix="/preview/xblock/i4x:;_;_andya;_AA101;_discussion;_1167bd23944d48e59f80819611a6a528/handler" data-type="InlineDiscussion" data-block-type="discussion">
-
-
-
-
-
-<div class="discussion-module" data-discussion-id="4bd5da1fa3c64eb199726dcaefc00489">
-    <a class="discussion-show control-button" href="javascript:void(0)" data-discussion-id="4bd5da1fa3c64eb199726dcaefc00489" role="button"><span class="show-hide-discussion-icon"></span><span class="button-text">Show Discussion</span></a>
-    <a href="#" class="new-post-btn" role="button"><span class="icon icon-edit new-post-icon"></span>New Post</a>
-</div>
-
-</section>
-
-
-</li><li class="component" data-locator="andya.AA101.2014_T1/branch/draft/block/problem2fa">
-
-
+            <div class="header-actions">
+                <ul class="actions-list">
+                    <li class="action-item action-view">
+                        <a href="#" class="action-button">
+                            <span class="action-button-text">View</span>
+                            <i class="icon-arrow-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <article class="xblock-render">Shows Element - Example Randomize Block could be here.</article>
+    </section>
+</li>
+<li class="component" data-locator="andya.AA101.2014_T1/branch/draft/block/problem2fa">
 <div class="wrapper wrapper-component-editor">
 <div class="component-editor">
 <div class="component-edit-header">

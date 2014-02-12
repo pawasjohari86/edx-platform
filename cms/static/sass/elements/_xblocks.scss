@@ -3,53 +3,55 @@
 
 // UI: xblock wrapper
 .xblock-wrapper {
-  border: 1px solid $gray-l4;
   margin: ($baseline/2);
+  border: 1px solid $gray-l4;
   border-radius: ($baseline/5);
   background: $white;
   box-shadow: 0px 1px 1px $shadow-l1;
 
 
   &:hover {
-    @include transition(all $tmg-f2 linear 0s);
-    box-shadow: 0px 0px 1px $shadow;
+    box-shadow: 0 0 1px $shadow;
   }
 
   // UI: xblock header
   .xblock-header {
-    line-height: ($baseline*2.5);
-    padding: 0 0 0 ($baseline*.75);
+    @include box-sizing(border-box);
+    display: flex;
     border-bottom: 1px solid $gray-l4;
-    border-radius: ($baseline/5);
     border-radius: ($baseline/5) ($baseline/5) 0 0;
+    min-height: ($baseline*2.5);
     background-color: $gray-l6;
+    align-items: center;
+
 
     .header-details {
-      display: inline-block;
-      width: 60%;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @extend %cont-truncated;
+      display: flex;
+      padding-left: flex-gutter();
+      width: flex-grid(6,12);
+      vertical-align: top;
+      justify-content: flex-start;
     }
 
     .header-actions {
-      display: inline-block;
-      width: 38%;
-      text-align: right;
+      display: flex;
+      width: flex-grid(6,12);
+      vertical-align: top;
+      justify-content: flex-end;
     }
   }
 
+  // UI: xblock render
   .xblock-render {
     @extend %anim-fadeIn;
   }
 }
 
-// ====================
+// UI: xblocks - calls-to-action
+// --------------------
+// TODO: this section uses similar styling as _outline.scss, should be separated or more cleanly inherited from general xblocks styling.
 
-// xblocks - calls-to-action
-
-// this section uses similar styling as _outline.scss, should be separated or more cleanly inherited from general xblocks styling.
-
-// UI: general actions list
 .xblock-wrapper {
 
   .actions-list {
@@ -62,12 +64,12 @@
 
     .action-button {
       @include transition(all $tmg-f2 ease-in-out 0s);
+      border-radius: 3px;
       padding: ($baseline/4) ($baseline/2);
+      min-width: ($baseline*.75);
       width: auto;
       height: ($baseline*1.5);
-      border-radius: 3px;
       color: $gray-l1;
-      min-width: ($baseline*.75);
 
       &:hover {
         background-color: $blue;
@@ -87,16 +89,16 @@
 }
 
 // UI: xblock is expandable and collapsible
-
-// this section uses similar styling block as _outline.scss, should be separated or more cleanly inherited
+// --------------------
+// TODO: this section uses similar styling block as _outline.scss, should be separated or more cleanly inherited
 .xblock-wrapper.is-collapsible {
 
   .expand-collapse {
     @include transition(all $tmg-f2 linear 0s);
     display: inline-block;
-    vertical-align: top;
     margin: 0 ($baseline/4);
     color: $gray-l2;
+    vertical-align: top;
 
     &:hover {
       color: $blue;
@@ -106,9 +108,9 @@
       @include transition(all $tmg-f2 ease-in-out 0s);
       @include font-size(18);
       display: inline-block;
-      vertical-align: middle;
       margin-right: ($baseline/4);
       color: $gray-l3;
+      vertical-align: middle;
     }
 
     &.expand .ui-toggle-expansion {
@@ -124,8 +126,8 @@
   .action-view {
 
     .action-button-text {
-      padding-left: 0;
       padding-right: ($baseline/5);
+      padding-left: 0;
     }
   }
 }

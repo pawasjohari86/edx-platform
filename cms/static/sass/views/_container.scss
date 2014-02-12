@@ -47,12 +47,12 @@ body.view-container {
     }
   }
 
-  // UI: xBlock Nesting Levelnesting
+  // UI: xBlock Nesting Level
 
   .xblock-wrapper-nestinglevel {
     margin: ($baseline/2);
     border: none;
-    padding-bottom: ($baseline/2);
+    padding-bottom: $baseline;
     box-shadow: none;
 
     &:hover {
@@ -61,7 +61,7 @@ body.view-container {
     }
 
     .xblock-header {
-      display: block;
+      display: flex;
       margin-bottom: ($baseline/2);
       border-bottom: none;
       background: none;
@@ -83,11 +83,11 @@ body.view-container {
     &:hover {
       @include transition(all $tmg-f2 linear 0s);
       border-color: $blue;
-      box-shadow: 0 0 1px $shadow;
+      box-shadow: 0 0 1px $shadow-d1;
 
     }
 
-    // this & styling section duplicated on unit page to enable linking to (initially) read-only container views
+    // TODO: this styling section duplicated on unit page to enable linking to (initially) read-only container views
     &.xblock-type-container {
 
       .xblock-header {
