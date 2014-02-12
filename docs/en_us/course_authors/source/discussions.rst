@@ -285,4 +285,6 @@ Students can use the **Report Misuse** flag to indicate posts that they find ina
 Block users
 ===============
 
-For students who continue to misuse the discussion, you can block further particpation by unenrolling the student from the course. See :ref:`unenroll_student`.
+For students who continue to misuse the course discussions, you can unenroll the student from the course. See :ref:`unenroll_student`. If the enrollment period for the course is over, the student cannot re-enroll.
+
+
