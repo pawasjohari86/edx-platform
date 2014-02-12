@@ -2,14 +2,14 @@
 // ==========================
 // The container view renders xblocks three levels deep: Page Level, Nesting Level, and Element Level.
 
-// For containers rendered at the element level, the container is rendered in a way that allows the user to navigate to a separate container page for that container making its children populat the nesting and element levels.
+// For containers rendered at the element level, the container is rendered in a way that allows the user to navigate to a separate container page for that container making its children populate the nesting and element levels.
 
-// Container Page View Styling
+// UI: Container Page View
 body.view-container {
 
   .mast {
     border-bottom: none;
-    padding-bottom: 0px;
+    padding-bottom: 0;
   }
 
   .content-primary {
@@ -29,10 +29,10 @@ body.view-container {
   }
 }
 
-// xBlock Page Level Styling
+// UI: xBlock Page Level
 body.view-container {
   .xblock-wrapper-pagelevel {
-    margin: 0px;
+    margin: 0;
 
     .xblock-header {
       display: none;
@@ -45,26 +45,23 @@ body.view-container {
     .xblock-render {
       background: none;
     }
-
-    .xblock-list { }
-
-    .xblock-listitem { }
   }
 
-  // xBlock Nesting Level Styling
+  // UI: xBlock Nesting Level
   .xblock-wrapper-nestinglevel {
     margin: $baseline/2;
     border: none;
+    padding-bottom: ($baseline/2);
     box-shadow: none;
 
     &:hover {
-      background-color: $shadow-l3;
+      background-color: $gray-l6;
       box-shadow: 0 0 1px $shadow-d2 inset;
     }
 
     .xblock-header {
       display: block;
-      margin-bottom: $baseline/2;
+      margin-bottom: ($baseline/2);
       border-bottom: none;
       background: none;
       box-shadow: none;
@@ -73,25 +70,19 @@ body.view-container {
         font-size: 1em;
       }
     }
-
-    .xblock-render { }
-
-    .xblock-list { }
-
-    .xblock-listitem { }
   }
 
-  // xBlock Element Level Styling
+  // UI: xBlock Element Level 
   .xblock-wrapper-elementlevel {
-    margin: 0px $baseline*2;
-    border-radius: $baseline/4;
+    margin: 0 ($baseline*2) $baseline ($baseline*2);
+    border-radius: ($baseline/4);
     background-color: $white;
     box-shadow: none;
 
     &:hover {
       @include transition(all $tmg-f2 linear 0s);
       border-color: $blue;
-      box-shadow: 0px 0px 1px $shadow;
+      box-shadow: 0 0 1px $shadow;
 
     }
 
@@ -99,9 +90,9 @@ body.view-container {
     &.xblock-type-container {
 
       .xblock-header {
-        margin-bottom: 0px;
-        border-bottom: 0px;
-        border-radius: $baseline/5;
+        margin-bottom: 0;
+        border-bottom: 0;
+        border-radius: ($baseline/5);
 
         .xblock-details {
           font-size: .9em;
@@ -114,18 +105,11 @@ body.view-container {
     }
 
     .xblock-header {
-      margin-bottom: 0px;
+      margin-bottom: 0;
       border-bottom: 1px solid $gray-l4;
-      background-color: $blue-l5;
+      background-color: $gray-l6;
       font-weight: 300;
       font-size: .9em;
-    }
-
-    .xblock-render {
-      padding: $baseline;
-
-      //temporary color change
-      color: $gray-l5;
     }
   }
 }
