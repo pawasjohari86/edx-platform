@@ -13,12 +13,12 @@ in XML.
 import json
 import logging
 
-from HTMLParser import HTMLParser
 from lxml import etree
 from pkg_resources import resource_string
 import datetime
 import copy
 from webob import Response
+from pysrt import SubRipTime, SubRipItem
 
 from django.conf import settings
 
@@ -265,11 +265,13 @@ class VideoModule(VideoFields, XModule):
         content_location = StaticContent.compute_location(
             self.location.org, self.location.course, filename
         )
+        sjson_transcripts = contentstore().find(content_location)
+        str_subs = _generate_srt_from_sjson(json.loads(sjson_transcripts.data), speed=1.0)
+        if not str_subs:
+            log.debug('generate_srt_from_sjson produces no subtitles')
+            raise ValueError
 
-        data = contentstore().find(content_location).data
-        text = json.loads(data)['text']
-
-        return HTMLParser().unescape("\n".join(text))
+        return str_subs
 
 
     @XBlock.handler
@@ -289,9 +291,9 @@ class VideoModule(VideoFields, XModule):
         response = Response(
             subs,
             headerlist=[
-                ('Content-Disposition', 'attachment; filename="{0}.txt"'.format(self.sub)),
+                ('Content-Disposition', 'attachment; filename="{0}.srt"'.format(self.sub)),
             ])
-        response.content_type="text/plain; charset=utf-8"
+        response.content_type="application/x-subrip"
 
         return response
 
@@ -583,3 +585,60 @@ def _create_youtube_string(module):
                      for pair
                      in zip(youtube_speeds, youtube_ids)
                      if pair[1]])
+
+
+def _generate_subs(speed, source_speed, source_subs):
+    """
+    Generate transcripts from one speed to another speed.
+
+    Args:
+    `speed`: float, for this speed subtitles will be generated,
+    `source_speed`: float, speed of source_subs
+    `soource_subs`: dict, existing subtitles for speed `source_speed`.
+
+    Returns:
+    `subs`: dict, actual subtitles.
+    """
+    if speed == source_speed:
+        return source_subs
+
+    coefficient = 1.0 * speed / source_speed
+    subs = {
+        'start': [
+            int(round(timestamp * coefficient)) for
+            timestamp in source_subs['start']
+        ],
+        'end': [
+            int(round(timestamp * coefficient)) for
+            timestamp in source_subs['end']
+        ],
+        'text': source_subs['text']}
+    return subs
+
+
+def _generate_srt_from_sjson(sjson_subs, speed):
+    """Generate transcripts with speed = 1.0 from sjson to SubRip (*.srt).
+
+    :param sjson_subs: "sjson" subs.
+    :param speed: speed of `sjson_subs`.
+    :returns: "srt" subs.
+    """
+
+    output = ''
+
+    equal_len = len(sjson_subs['start']) == len(sjson_subs['end']) == len(sjson_subs['text'])
+    if not equal_len:
+        return output
+
+    sjson_speed_1 = _generate_subs(speed, 1, sjson_subs)
+
+    for i in range(len(sjson_speed_1['start'])):
+        item = SubRipItem(
+            index=i,
+            start=SubRipTime(milliseconds=sjson_speed_1['start'][i]),
+            end=SubRipTime(milliseconds=sjson_speed_1['end'][i]),
+            text=sjson_speed_1['text'][i]
+        )
+        output += (unicode(item))
+        output += '\n'
+    return output
