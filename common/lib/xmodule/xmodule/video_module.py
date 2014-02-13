@@ -116,8 +116,6 @@ class VideoFields(object):
         display_name="Video Sources",
         scope=Scope.settings,
     )
-    # `track` is deprecated field and should not be used in future.
-    # `download_track` is used instead.
     track = String(
         help="The external URL to download the timed transcript track. This appears as a link beneath the video.",
         display_name="Download Transcript",
@@ -199,8 +197,6 @@ class VideoModule(VideoFields, XModule):
                     if key == 'speed':
                         self.global_speed = self.speed
 
-            log.debug(u"Test.")
-
             return json.dumps({'success': True})
 
         log.debug(u"GET {0}".format(data))
@@ -221,14 +217,11 @@ class VideoModule(VideoFields, XModule):
             elif self.html5_sources:
                 sources['main'] = self.html5_sources[0]
 
-        # Commented due to the reason described in BLD-811.
-        # if self.download_track:
-        #     if self.track:
-        #         track_url = self.track
-        #     elif self.sub:
-        #         track_url = self.runtime.handler_url(self, 'download_transcript')
-
-        track_url = self.track
+        if self.download_track:
+            if self.track:
+                track_url = self.track
+            elif self.sub:
+                track_url = self.runtime.handler_url(self, 'download_transcript')
 
         return self.system.render_template('video.html', {
             'ajax_url': self.system.ajax_url + '/save_user_state',
@@ -325,15 +318,6 @@ class VideoDescriptor(VideoFields, TabsEditingDescriptor, EmptyDataRawDescriptor
         '''
         Mostly handles backward compatibility issues.
 
-        Track was deprecated field, but functionality was reverted,
-        this is commented out because might be used in future.
-        ###
-        `track` is deprecated field.
-        If `track` field exists show `track` field on front-end as not-editable
-        but clearable. Dropdown `download_track` is a new field and it has value
-        True.
-        ###
-
         `source` is deprecated field.
         a) If `source` exists and `source` is not `html5_sources`: show `source`
             field on front-end as not-editable but clearable. Dropdown is a new
@@ -352,14 +336,6 @@ class VideoDescriptor(VideoFields, TabsEditingDescriptor, EmptyDataRawDescriptor
 
         editable_fields = self.editable_metadata_fields
 
-        # Commented due to the reason described in BLD-811.
-        # self.track_visible = False
-        # if self.track:
-        #     self.track_visible = True
-        #     download_track = editable_fields['download_track']
-        #     if not download_track['explicitly_set']:
-        #         self.download_track = True
-
         self.source_visible = False
         if self.source:
             # If `source` field value exist in the `html5_sources` field values,
@@ -376,16 +352,6 @@ class VideoDescriptor(VideoFields, TabsEditingDescriptor, EmptyDataRawDescriptor
     @property
     def editable_metadata_fields(self):
         editable_fields = super(VideoDescriptor, self).editable_metadata_fields
-
-        # Commented due to the reason described in BLD-811.
-        # if hasattr(self, 'track_visible'):
-        #     if self.track_visible:
-        #         editable_fields['track']['non_editable'] = True
-        #     else:
-        #         editable_fields.pop('track')
-
-        if 'download_track' in editable_fields:
-            editable_fields.pop('download_track')
 
         if hasattr(self, 'source_visible'):
             if self.source_visible:
@@ -585,9 +551,16 @@ class VideoDescriptor(VideoFields, TabsEditingDescriptor, EmptyDataRawDescriptor
                     value = deserialize_field(cls.fields[attr], value)
                 field_data[attr] = value
 
-        # Add `source` for backwards compatibility if xml doesn't  have `download_video`.
+        # For backwards compatibility: Add `source` if XML doesn't have `download_video`
+        # attribute.
         if 'download_video' not in field_data and sources:
             field_data['source'] = field_data['html5_sources'][0]
+
+        # For backwards compatibility: if XML doesn't have `download_track` attribute,
+        # it means that it is an old format. So, if `track` has some value,
+        # `download_track` needs to have value `True`.
+        if 'download_track' not in field_data and track is not None:
+            field_data['download_track'] = True
 
         return field_data
 
