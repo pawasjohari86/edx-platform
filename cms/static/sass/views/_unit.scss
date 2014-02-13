@@ -427,7 +427,7 @@ body.course.unit,.view-unit {
         line-height: $baseline*2;
         min-height: $baseline*2;
       }
-      
+
       .xblock-render-elementlevel {
         display: none;
       }
@@ -1345,4 +1345,32 @@ body.unit {
 //  hides latex compiler button if settings mode is-active
 div.wrapper-comp-editor.is-inactive ~ div.launch-latex-compiler{
  display: none;
+}
+
+// ====================
+
+// xblock - unit page container
+
+body.unit .xblock-type-container {
+  margin: 0px;
+
+  &:hover {
+    @include transition(all $tmg-f2 linear 0s);
+    border-color: $blue;
+    box-shadow: 0 0 1px $shadow-d1;
+  }
+
+  .xblock-header {
+    margin-bottom: 0;
+    border-bottom: 0;
+    border-radius: ($baseline/5);
+
+    .xblock-details {
+      font-size: .9em;
+    }
+  }
+
+  .xblock-render {
+    display: none;
+  }
 }
